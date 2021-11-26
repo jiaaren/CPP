@@ -20,6 +20,7 @@ public:
     // Member functions
     void convert_att(std::string str);
     void update_contact(void);
+    void fast_update(void);
     void display_summary(int index);
     void display_contact(void);
 };

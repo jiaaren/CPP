@@ -30,6 +30,18 @@ void Contact::update_contact(void)
     std::getline(std::cin, this->darkest_secret);
 }
 
+void Contact::fast_update(void)
+{
+    std::string dummy;
+    std::cout << "Enter dummy data: ";
+    std::getline(std::cin, dummy);
+    this->first_name = dummy;
+    this->last_name = dummy;
+    this->nickname = dummy;
+    this->phone_number = dummy;
+    this->darkest_secret = dummy;
+}
+
 void Contact::convert_att(std::string str)
 {
     if (str.length() > 10)
