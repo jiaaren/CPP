@@ -6,7 +6,7 @@
 /*   By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 01:53:52 by jkhong            #+#    #+#             */
-/*   Updated: 2021/11/27 01:58:10 by jkhong           ###   ########.fr       */
+/*   Updated: 2021/11/27 02:17:41 by jkhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,9 @@ Zombie *zombieHorde(int N, std::string name)
         ss >> tmp;
         // clearing string stream -> needed this or else kept printing one only
         ss.clear();
-        horde[i] = Zombie(name + " " + tmp);
+        // removing this or else would have double destructor
+        // horde[i] = Zombie(name + " " + tmp);
+        horde[i].update_name(name + " " + tmp);
     }
     return (horde);
 }

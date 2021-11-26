@@ -6,7 +6,7 @@
 /*   By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 01:53:59 by jkhong            #+#    #+#             */
-/*   Updated: 2021/11/27 01:54:00 by jkhong           ###   ########.fr       */
+/*   Updated: 2021/11/27 02:16:38 by jkhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@ Zombie::Zombie(void)
 }
 
 Zombie::Zombie(std::string name)
+{
+    this->name = name;
+    return;
+}
+
+void Zombie::update_name(std::string name)
 {
     this->name = name;
     return;

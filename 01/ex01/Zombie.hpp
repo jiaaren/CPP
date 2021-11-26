@@ -6,7 +6,7 @@
 /*   By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 01:53:48 by jkhong            #+#    #+#             */
-/*   Updated: 2021/11/27 01:53:49 by jkhong           ###   ########.fr       */
+/*   Updated: 2021/11/27 02:16:34 by jkhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ public:
     Zombie(std::string name);
     ~Zombie();
     void announce(void);
+    void update_name(std::string name);
 
 private:
     std::string name;
