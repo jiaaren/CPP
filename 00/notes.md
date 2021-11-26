@@ -62,6 +62,25 @@
 - Whenever class functions are called, a hidden `this` paramter is passed in which refers to the instance of the class
 - can use this to assign member variables/attributes or calling member functions within Class functions
 
+### Vectors and templating
+- Declaring vectors `std::vector<int>` -> < > are represented by the standard templating library
+- main methods
+  - `vector.pushback` -> to add items towards the end
+  - `vector[]` -> for indexing
+  - `vector.size()` -> to return size
+    - size - 1 represents last position
+
+### Pair
+- https://en.cppreference.com/w/cpp/utility/pair
+  - has member attributes `first` and `second`
+
+### Classes (cont'd)
+- https://www.tutorialspoint.com/cplusplus/cpp_static_members.html
+- all **Static variables** are shared by all classes
+
+- need to initialise static members in class
+- https://stackoverflow.com/questions/9110487/undefined-reference-to-a-static-member
+
 ### C++ 98 vs 11
 - 98 is simpler for introductions into C++
 
