@@ -15,14 +15,24 @@ int main(int argc, char *argv[])
 	std::ifstream ifs(filename.data());
 	std::ofstream ofs((filename + (std::string) ".replace").data());
 	std::string contents;
-	// int rep_len = std::strlen(argv[2]);
+	int rep_len = std::strlen(argv[2]);
 	// int torep_len = std::strlen(argv[3]);
-	// int pos = 0;
+	size_t pos = 0;
 
 	while (!ifs.eof())
 	{
 		std::getline(ifs, contents);
-		std::cout << contents << std::endl;
+
+		while (true)
+		{
+			pos = contents.find(argv[2], pos);
+			// npos represents -1
+			if (pos == std::string::npos)
+				break;
+			contents.erase(pos, rep_len);
+			contents.insert(pos, argv[3]);
+		}
+		ofs << contents << std::endl;
 	}
 	ifs.close();
 	ofs.close();
