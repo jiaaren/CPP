@@ -16,11 +16,15 @@ int main(int argc, char *argv[])
 	std::ofstream ofs((filename + (std::string) ".replace").data());
 	std::string contents;
 	int rep_len = std::strlen(argv[2]);
-	int torep_len = std::strlen(argv[3]);
+	// int torep_len = std::strlen(argv[3]);
+	int pos = 0;
 
 	ifs >> contents;
 	while (true)
 	{
+		contents.find(argv[2], pos);
+		contents.erase(pos, rep_len);
+		contents.insert(pos, argv[3]);
 		break;
 	}
 	ofs << contents;
