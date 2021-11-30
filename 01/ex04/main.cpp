@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/28 20:43:46 by jkhong            #+#    #+#             */
+/*   Updated: 2021/11/28 20:44:36 by jkhong           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -16,7 +28,6 @@ int main(int argc, char *argv[])
 	std::ofstream ofs((filename + (std::string) ".replace").data());
 	std::string contents;
 	int rep_len = std::strlen(argv[2]);
-	// int torep_len = std::strlen(argv[3]);
 	size_t pos = 0;
 
 	while (!ifs.eof())
@@ -31,6 +42,9 @@ int main(int argc, char *argv[])
 				break;
 			contents.erase(pos, rep_len);
 			contents.insert(pos, argv[3]);
+			// https://stackoverflow.com/questions/4643512/replace-substring-with-another-substring-c
+			// increment by length of replacement just to avoid from reiterating throught the whole string again using .find
+			pos += rep_len;
 		}
 		ofs << contents << std::endl;
 	}

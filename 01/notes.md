@@ -20,3 +20,17 @@ When declaring -> classes within classes MUST be declared part of declaration of
 
 
 String stream vs strings? what's the difference
+
+
+### Ex06
+https://linux.byexamples.com/archives/108/beware-of-non-ascii-characters/
+```
+./karenFilter INFO | cat -e
+[INFO]$
+I cannot believe adding extra bacon cost more money.$
+You donM-bM-^@M-^Yt put enough! If you did I would not have to ask for it!$
+```
+- single quotes is seen as this
+
+Implicit fallthrough
+https://stackoverflow.com/questions/44511436/how-to-do-an-explicit-fall-through-in-c
