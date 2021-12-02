@@ -62,6 +62,100 @@
 - Whenever class functions are called, a hidden `this` paramter is passed in which refers to the instance of the class
 - can use this to assign member variables/attributes or calling member functions within Class functions
 
+### Class initialisation
+- `Sample1::Sample1(char b1, int b2, float b3) : a1(b1), a2(b2), a3(b3)`
+
+### Const
+- Why const?
+  - Prevent program from blowing up
+  - Robust code
+  - prevent time spent for debugging
+  - extension for **functional programming**
+- Uses of const
+    1. Constant variables
+        - [const int vs int const](https://stackoverflow.com/questions/3247285/const-int-int-const)
+          - declaring int both **same**
+          - for pointers
+            - Declares a pointer whose data cannot be changed through the pointer:
+              - `const int *p = &someInt;`
+            - Declares a pointer who cannot be changed to point to something else:
+              - `int * const p = &someInt;`
+    2. Constant class member attributes
+        - need to use class initialisation during constructor
+    4. Constant class member functions
+        - **good practice to use this if class member function doesn't change state of class**
+        - ensures state of class doesn't change 
+        - will prompt error if attempt assigning
+        - e.g. `this->var = 42` will prompt **read-only object** compilation error
+
+### Visilibity (private/public)
+- Public -> accessible anywhere
+- Private -> only accessible within class functions
+- **good practive to differentiate user accessible functions and non accessible**
+
+#### Public
+- must place constructor and destructor within public
+  - however, sometimes make sense to place constructor in private
+
+#### Private
+- conventionally variables declared starting with `_` prefix before or after, e.g. _privateFoo
+
+### Structs
+- Extended structs in **C++**
+- **Same** syntax as Classes
+- can accept private and public keywords
+
+#### Difference vs classes
+- structs -> public by default
+- classes -> private by default
+- **best practice just use classes**, unless everything is public
+
+### Accessors
+- basically **normal functions**
+- convention to use getters and setters to access update private variables
+- naming convention -> `getFoo`/ `setFoo`
+
+#### Getters
+- since only returning data, make sure its **const**
+- can be used to aggregate data or convert data after doing math (e.g. currency exchange)
+- have control to what is returned to user
+- good to **overuse** getters
+
+#### Setters
+- e.g. of limiting changes to data, e.g. only allowing non negative integers
+- Improvements 
+    - return type to boolean -> to inform user if successful set/update operation
+    - print or log error message
+
+### Comparisons
+- physical equality vs structural equality
+  - Usually cannot just compare class to another class instance (i.e. physical equality)
+- instead we need to compare to find out structural equality
+  - do this by creating a `.comapre` function accepting a pointer to another class
+
+### Non member attributes & non member functions
+- aka **instance** attributes and functions
+- variables exist at Class level rather than member level
+
+#### Syntax
+- use **static** keyword
+- for both variables or functions
+  - Variables
+    - Declare `int Sample::_nbInst = 0;` 
+    - Access using `Sample::_nbInst`
+  - Function
+    - Calling function using `Sample::getNbInst()`
+
+### Pointers to members & member functions
+- TO LEARN
+- very useful
+
+#### Considerations
+- cannot use this
+  - not passed into instance
+- need to use **const**
+- use initialisations for constructor
+
 ### Vectors and templating
 - Declaring vectors `std::vector<int>` -> < > are represented by the standard templating library
 - main methods
