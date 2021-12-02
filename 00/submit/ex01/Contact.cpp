@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Contact.cpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/30 20:38:58 by jkhong            #+#    #+#             */
+/*   Updated: 2021/11/30 20:38:59 by jkhong           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include <iomanip>
 #include <sstream>
@@ -18,13 +30,13 @@ Contact::~Contact(void)
 void Contact::update_contact(void)
 {
     // https://stackoverflow.com/questions/5838711/stdcin-input-with-spaces
-    std::cout << "First name: ";
+    std::cout << "First name    : ";
     std::getline(std::cin, this->first_name);
-    std::cout << "Last name: ";
+    std::cout << "Last name     : ";
     std::getline(std::cin, this->last_name);
-    std::cout << "Nickname: ";
+    std::cout << "Nickname      : ";
     std::getline(std::cin, this->nickname);
-    std::cout << "Phone number: ";
+    std::cout << "Phone number  : ";
     std::getline(std::cin, this->phone_number);
     std::cout << "Darkest secret: ";
     std::getline(std::cin, this->darkest_secret);

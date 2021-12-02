@@ -83,6 +83,8 @@
 
 ### C++ 98 vs 11
 - 98 is simpler for introductions into C++
+- https://stackoverflow.com/questions/12606713/enforcing-the-c98-standard-in-gcc
+
 
 ### Compilation
 - g++ <filename.cpp>
