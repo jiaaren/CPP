@@ -6,7 +6,7 @@
 /*   By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 00:59:28 by jkhong            #+#    #+#             */
-/*   Updated: 2021/12/03 12:56:24 by jkhong           ###   ########.fr       */
+/*   Updated: 2021/12/03 16:13:49 by jkhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,11 @@ Fixed::~Fixed(void)
     return;
 }
 
+// We can call other private variables of classes in another class's member functions
 Fixed &Fixed::operator=(Fixed const &rhs)
 {
     std::cout << "Assignation operator called" << std::endl;
-    this->_fpval = rhs.getRawBits();
+    this->_fpval = rhs._fpval;
     return (*this);
 }
 

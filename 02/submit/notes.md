@@ -5,3 +5,4 @@ Err
 
 Ex01
 - roundf - floor makes negative numbers round up
+- // We can call other private variables of classes in another class's member functions
