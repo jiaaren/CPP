@@ -6,7 +6,7 @@
 /*   By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 01:17:47 by jkhong            #+#    #+#             */
-/*   Updated: 2021/12/05 15:57:22 by jkhong           ###   ########.fr       */
+/*   Updated: 2021/12/06 00:34:12 by jkhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 
 class ClapTrap
 {
-private:
+    // updated to protected
+protected:
     std::string _name;
     // hitpoints
     int _hp;

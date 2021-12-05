@@ -1,39 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/04 01:17:47 by jkhong            #+#    #+#             */
-/*   Updated: 2021/12/05 15:57:22 by jkhong           ###   ########.fr       */
+/*   Created: 2021/12/06 00:51:49 by jkhong            #+#    #+#             */
+/*   Updated: 2021/12/06 01:32:05 by jkhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_H
-#define CLAPTRAP_H
-
 #include <string>
+#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-class ClapTrap
+class DiamondTrap : public FragTrap, public ScavTrap
 {
 private:
     std::string _name;
-    // hitpoints
-    int _hp;
-    // energy points
-    int _ep;
-    // attack
-    int _atk;
+    std::string _clap_name;
 
 public:
-    ClapTrap(std::string const name);
-    ~ClapTrap(void);
-    bool check_ep(unsigned int const amount) const;
-    void reduce_ep(unsigned int const amount);
-    void attack(std::string const &target);
-    void takeDamage(unsigned int amount);
-    void beRepaired(unsigned int amount);
+    DiamondTrap(std::string const name);
+    ~DiamondTrap(void);
+    void attack(const std::string &target);
+    void whoAmI(void) const;
 };
-
-#endif
