@@ -57,8 +57,8 @@ void Account::_displayTimestamp(void)
     timeinfo = localtime(&rawtime);
 
     strftime(buffer, 80, "[%Y%m%d_%H%M%S]", timeinfo);
-    // std::cout << buffer;
-    std::cout << "[19920104_091532]";
+    std::cout << buffer;
+    // std::cout << "[19920104_091532]";
 }
 
 void Account::makeDeposit(int deposit)
@@ -106,7 +106,6 @@ int Account::checkAmount(void) const
     return (this->_amount);
 }
 
-// what does this const mean
 void Account::displayStatus(void) const
 {
     _displayTimestamp();
@@ -139,3 +138,4 @@ Account::~Account(void)
               << ";amount:" << this->_amount << ";closed" << std::endl;
     return;
 }
+
