@@ -6,7 +6,7 @@
 /*   By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 10:42:05 by jkhong            #+#    #+#             */
-/*   Updated: 2021/11/27 11:21:42 by jkhong           ###   ########.fr       */
+/*   Updated: 2021/12/06 22:30:12 by jkhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,14 @@
 
 class Weapon
 {
+private:
+    std::string _type;
+
 public:
-    // Member attr
-    std::string type;
-    // Member func
-    std::string *getType(void);
-    void setType(std::string type);
-    // Constructor destructor
     Weapon(std::string type);
-    ~Weapon();
+    ~Weapon(void);
+    std::string getType(void) const;
+    void setType(std::string const type);
 };
 
 #endif

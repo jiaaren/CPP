@@ -6,7 +6,7 @@
 /*   By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 20:39:02 by jkhong            #+#    #+#             */
-/*   Updated: 2021/12/06 11:37:44 by jkhong           ###   ########.fr       */
+/*   Updated: 2021/12/06 21:22:23 by jkhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class Contact
 {
-public:
+private:
     // Class attributes
     std::string first_name;
     std::string last_name;
@@ -25,6 +25,7 @@ public:
     std::string phone_number;
     std::string darkest_secret;
 
+public:
     // Constructor and destructor
     Contact(void);
     ~Contact(void);

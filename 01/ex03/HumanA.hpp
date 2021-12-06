@@ -6,7 +6,7 @@
 /*   By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 10:48:07 by jkhong            #+#    #+#             */
-/*   Updated: 2021/11/28 14:28:15 by jkhong           ###   ########.fr       */
+/*   Updated: 2021/12/06 22:34:18 by jkhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,14 @@
 
 class HumanA
 {
+private:
+    Weapon &_weapon;
+    std::string _name;
+
 public:
-    // Member attr
-    Weapon &weapon;
-    std::string name;
-    // Member func
-    void attack(void);
-    // Constructor & destuctor
-    HumanA(std::string name, Weapon &weapon);
-    ~HumanA();
+    HumanA(std::string const name, Weapon &weapon);
+    ~HumanA(void);
+    void attack(void) const;
 };
 
 #endif

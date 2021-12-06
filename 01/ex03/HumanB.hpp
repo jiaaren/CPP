@@ -6,7 +6,7 @@
 /*   By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 10:48:07 by jkhong            #+#    #+#             */
-/*   Updated: 2021/11/28 14:43:26 by jkhong           ###   ########.fr       */
+/*   Updated: 2021/12/06 22:37:48 by jkhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,15 @@
 
 class HumanB
 {
+private:
+    Weapon *_weapon;
+    std::string _name;
+
 public:
-    // Member attr
-    Weapon *weapon;
-    std::string name;
-    // Member func
-    void setWeapon(Weapon &weapon);
-    void attack(void);
-    // Constructor & destuctor
     HumanB(std::string name);
-    ~HumanB();
+    ~HumanB(void);
+    void setWeapon(Weapon &weapon);
+    void attack(void) const;
 };
 
 #endif

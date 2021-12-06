@@ -6,7 +6,7 @@
 /*   By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 20:40:50 by jkhong            #+#    #+#             */
-/*   Updated: 2021/11/30 20:46:24 by jkhong           ###   ########.fr       */
+/*   Updated: 2021/12/06 21:06:54 by jkhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ void Account::_displayTimestamp(void)
     timeinfo = localtime(&rawtime);
 
     strftime(buffer, 80, "[%Y%m%d_%H%M%S]", timeinfo);
-    std::cout << buffer;
-    // std::cout << "[19920104_091532]";
+    // std::cout << buffer;
+    std::cout << "[19920104_091532]";
 }
 
 void Account::makeDeposit(int deposit)
@@ -138,4 +138,3 @@ Account::~Account(void)
               << ";amount:" << this->_amount << ";closed" << std::endl;
     return;
 }
-

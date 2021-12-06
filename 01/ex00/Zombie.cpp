@@ -6,27 +6,43 @@
 /*   By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 01:53:27 by jkhong            #+#    #+#             */
-/*   Updated: 2021/11/27 01:53:28 by jkhong           ###   ########.fr       */
+/*   Updated: 2021/12/06 22:08:05 by jkhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 #include <iostream>
 
-Zombie::Zombie(std::string name)
+Zombie::Zombie(void) : _name("(nameless)")
 {
-    this->name = name;
+    return;
+}
+
+Zombie::Zombie(std::string name) : _name(name)
+{
+    std::cout << "Zombie " << this->_name << " is risen from the dead!" << std::endl;
     return;
 }
 
 Zombie::~Zombie(void)
 {
-    std::cout << "Zombie " << this->name << " is now dead!" << std::endl;
+    std::cout << "Zombie " << this->_name << " is now (officially) dead!" << std::endl;
     return;
 }
 
-void Zombie::announce(void)
+void Zombie::announce(void) const
 {
-    std::cout << this->name << " BraiiiiiiinnnzzzZ..." << std::endl;
+    std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+    return;
+}
+
+std::string Zombie::getName(void) const
+{
+    return (this->_name);
+}
+
+void Zombie::setName(std::string const name)
+{
+    this->_name = name;
     return;
 }

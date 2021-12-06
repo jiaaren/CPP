@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/27 01:53:48 by jkhong            #+#    #+#             */
-/*   Updated: 2021/11/27 02:16:34 by jkhong           ###   ########.fr       */
+/*   Created: 2021/11/27 01:53:37 by jkhong            #+#    #+#             */
+/*   Updated: 2021/12/06 22:10:46 by jkhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@
 class Zombie
 {
 public:
-    // dummy constructor
-    Zombie();
+    Zombie(void);
     Zombie(std::string name);
-    ~Zombie();
-    void announce(void);
-    void update_name(std::string name);
+    ~Zombie(void);
+    void announce(void) const;
+    std::string getName(void) const;
+    void setName(std::string const name);
 
 private:
-    std::string name;
+    std::string _name;
 };
 
 // ex00
@@ -34,6 +34,6 @@ Zombie *newZombie(std::string name);
 void randomChump(std::string name);
 
 // ex01
-Zombie *zombieHorde(int N, std::string name);
+Zombie *zombieHorde(unsigned int N, std::string name);
 
 #endif
