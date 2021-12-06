@@ -6,7 +6,7 @@
 /*   By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 20:28:37 by jkhong            #+#    #+#             */
-/*   Updated: 2021/12/06 11:33:06 by jkhong           ###   ########.fr       */
+/*   Updated: 2021/12/06 11:45:38 by jkhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,4 @@
 #define BOLD(x) "\x1B[1m" x RST
 #define UNDL(x) "\x1B[4m" x RST
 
-#endif /* COLORS_H */
+#endif
