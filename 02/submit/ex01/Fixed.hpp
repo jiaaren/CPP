@@ -6,12 +6,12 @@
 /*   By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 00:52:41 by jkhong            #+#    #+#             */
-/*   Updated: 2021/12/09 01:14:38 by jkhong           ###   ########.fr       */
+/*   Updated: 2021/12/09 02:01:59 by jkhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_H
-#define FIXED_H
+#ifndef FIXED_HPP
+#define FIXED_HPP
 
 #include <ostream>
 
@@ -24,14 +24,14 @@ public:
     Fixed(float const f);
     ~Fixed(void);
 
-    Fixed   &operator=(Fixed const &rhs);
-    int     getRawBits(void) const;
-    void    setRawBits(int const raw);
-    float   toFloat(void) const;
-    int     toInt(void) const;
+    Fixed &operator=(Fixed const &rhs);
+    int getRawBits(void) const;
+    void setRawBits(int const raw);
+    float toFloat(void) const;
+    int toInt(void) const;
 
 private:
-    int     _fpval;
+    int _fpval;
     static int const _frac_bits;
 };
 

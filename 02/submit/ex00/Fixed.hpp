@@ -6,12 +6,12 @@
 /*   By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 00:52:41 by jkhong            #+#    #+#             */
-/*   Updated: 2021/12/09 00:56:55 by jkhong           ###   ########.fr       */
+/*   Updated: 2021/12/09 02:01:48 by jkhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_H
-#define FIXED_H
+#ifndef FIXED_HPP
+#define FIXED_HPP
 
 class Fixed
 {

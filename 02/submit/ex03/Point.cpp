@@ -6,7 +6,7 @@ Point::Point(void) : x(Fixed(0)), y(Fixed(0))
     return;
 }
 
-Point::Point(Point const &n) : x(n.x), y(n.y)
+Point::Point(Point const &n) : x(n.getX()), y(n.getY())
 {
     return;
 }
@@ -21,8 +21,18 @@ Point::~Point(void)
     return;
 }
 
-// x and y are const, so need to return new value instead of returning *this
-Point   Point::operator=(Point const &rhs)
+Point &Point::operator=(Point const &rhs)
 {
-    return (Point(rhs));
+    *this = rhs;
+    return (*this);
+}
+
+Fixed Point::getX(void) const
+{
+    return (this->x);
+}
+
+Fixed Point::getY(void) const
+{
+    return (this->y);
 }
