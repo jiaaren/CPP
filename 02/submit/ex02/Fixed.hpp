@@ -24,43 +24,41 @@ public:
     Fixed(float const f);
     ~Fixed(void);
 
-    Fixed &operator=(Fixed const &rhs);
-    int getRawBits(void) const;
-    void setRawBits(int const raw);
-    float toFloat(void) const;
-    int toInt(void) const;
+    Fixed   &operator=(Fixed const &rhs);
+    int     getRawBits(void) const;
+    void    setRawBits(int const raw);
+    float   toFloat(void) const;
+    int     toInt(void) const;
 
     // conditions
-    bool operator>(Fixed const &rhs) const;
-    bool operator<(Fixed const &rhs) const;
-    bool operator>=(Fixed const &rhs) const;
-    bool operator<=(Fixed const &rhs) const;
-    bool operator==(Fixed const &rhs) const;
-    bool operator!=(Fixed const &rhs) const;
+    bool    operator>(Fixed const &rhs) const;
+    bool    operator<(Fixed const &rhs) const;
+    bool    operator>=(Fixed const &rhs) const;
+    bool    operator<=(Fixed const &rhs) const;
+    bool    operator==(Fixed const &rhs) const;
+    bool    operator!=(Fixed const &rhs) const;
 
     // arithmetic
-    Fixed operator+(Fixed const &rhs) const;
-    Fixed operator-(Fixed const &rhs) const;
-    Fixed operator*(Fixed const &rhs) const;
-    Fixed operator/(Fixed const &rhs) const;
+    Fixed   operator+(Fixed const &rhs) const;
+    Fixed   operator-(Fixed const &rhs) const;
+    Fixed   operator*(Fixed const &rhs) const;
+    Fixed   operator/(Fixed const &rhs) const;
 
     // prefix 
-    Fixed &operator++(void);
-    Fixed &operator--(void);
+    Fixed   &operator++(void);
+    Fixed   &operator--(void);
     // postfix -> int within brackets == postfix
-    Fixed operator++(int);
-    Fixed operator--(int);
+    Fixed   operator++(int);
+    Fixed   operator--(int);
 
-    static Fixed &min(Fixed &a, Fixed &b);
-    // don't really understand the const requirement
-    //  i.e. why need const?  static Fixed &const min(Fixed &const a, Fixed &const b); -> why couldn't i do this?
+    static       Fixed &min(Fixed &a, Fixed &b);
     const static Fixed &min(Fixed const &a, Fixed const &b);
-    static Fixed &max(Fixed &a, Fixed &b);
+    static       Fixed &max(Fixed &a, Fixed &b);
     const static Fixed &max(Fixed const &a, Fixed const &b);
 
 private:
-    int _fpval;
-    static int const _frac_bits;
+    int                 _fpval;
+    static int const    _frac_bits;
 };
 
 // outside

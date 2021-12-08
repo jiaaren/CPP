@@ -6,7 +6,7 @@
 /*   By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 00:59:28 by jkhong            #+#    #+#             */
-/*   Updated: 2021/12/03 16:13:49 by jkhong           ###   ########.fr       */
+/*   Updated: 2021/12/09 01:25:52 by jkhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,17 @@ Fixed::Fixed(int const n)
 {
     std::cout << "Int constructor called" << std::endl;
     // essentially n ^ 8
-    this->_fpval = n << _frac_bits;
+    this->setRawBits(n << _frac_bits);
     return;
 }
 
 Fixed::Fixed(float const f)
 {
-    float tmp = f;
-    for (int i = 0; i < 8; i++)
-        tmp *= 2;
-    this->_fpval = (int)(roundf(tmp));
     std::cout << "Float constructor called" << std::endl;
+    float tmp = f;
+    for (int i = 0; i < _frac_bits; i++)
+        tmp *= 2;
+    this->setRawBits((int)roundf(tmp));
     return;
 }
 
@@ -51,31 +51,28 @@ Fixed::~Fixed(void)
     return;
 }
 
-// We can call other private variables of classes in another class's member functions
 Fixed &Fixed::operator=(Fixed const &rhs)
 {
     std::cout << "Assignation operator called" << std::endl;
-    this->_fpval = rhs._fpval;
+    this->_fpval = rhs.getRawBits();
     return (*this);
 }
 
 int Fixed::getRawBits(void) const
 {
-    std::cout << "getRawBits member function called" << std::endl;
     return (this->_fpval);
 }
 
 void Fixed::setRawBits(int const raw)
 {
-    std::cout << "setRawBits member function called" << std::endl;
     this->_fpval = raw;
     return;
 }
 
 float Fixed::toFloat(void) const
 {
-    float tmp = (float)(this->_fpval);
-    for (int i = 0; i < 8; i++)
+    float tmp = (float)(this->getRawBits());
+    for (int i = 0; i < _frac_bits; i++)
         tmp /= 2;
     return (tmp);
 }

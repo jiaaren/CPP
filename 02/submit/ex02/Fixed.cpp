@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkhong <jkhong@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 00:59:28 by jkhong            #+#    #+#             */
-/*   Updated: 2021/12/03 20:26:58 by jkhong           ###   ########.fr       */
+/*   Updated: 2021/12/09 01:36:50 by jkhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,16 @@ Fixed::Fixed(Fixed const &n)
 Fixed::Fixed(int const n)
 {
     // essentially n ^ 8
-    this->_fpval = n << _frac_bits;
+    this->setRawBits(n << _frac_bits);
     return;
 }
 
 Fixed::Fixed(float const f)
 {
     float tmp = f;
-    for (int i = 0; i < 8; i++)
+    for (int i = 0; i < _frac_bits; i++)
         tmp *= 2;
-    this->_fpval = (int)(roundf(tmp));
+    this->setRawBits((int)roundf(tmp));
     return;
 }
 
@@ -46,10 +46,9 @@ Fixed::~Fixed(void)
     return;
 }
 
-// We can call other private variables of classes in another class's member functions
 Fixed &Fixed::operator=(Fixed const &rhs)
 {
-    this->_fpval = rhs._fpval;
+    this->_fpval = rhs.getRawBits();
     return (*this);
 }
 
@@ -66,8 +65,8 @@ void Fixed::setRawBits(int const raw)
 
 float Fixed::toFloat(void) const
 {
-    float tmp = (float)(this->_fpval);
-    for (int i = 0; i < 8; i++)
+    float tmp = (float)(this->getRawBits());
+    for (int i = 0; i < _frac_bits; i++)
         tmp /= 2;
     return (tmp);
 }
@@ -79,45 +78,45 @@ int Fixed::toInt(void) const
 
 bool Fixed::operator>(Fixed const &rhs) const
 {
-    return (this->_fpval > rhs._fpval);
+    return (this->_fpval > rhs.getRawBits());
 }
 
 bool Fixed::operator<(Fixed const &rhs) const
 {
-    return (this->_fpval < rhs._fpval);
+    return (this->_fpval < rhs.getRawBits());
 }
 
 bool Fixed::operator>=(Fixed const &rhs) const
 {
-    return (this->_fpval >= rhs._fpval);
+    return (this->_fpval >= rhs.getRawBits());
 }
 
 bool Fixed::operator<=(Fixed const &rhs) const
 {
-    return (this->_fpval <= rhs._fpval);
+    return (this->_fpval <= rhs.getRawBits());
 }
 
 bool Fixed::operator==(Fixed const &rhs) const
 {
-    return (this->_fpval == rhs._fpval);
+    return (this->_fpval == rhs.getRawBits());
 }
 
 bool Fixed::operator!=(Fixed const &rhs) const
 {
-    return (this->_fpval != rhs._fpval);
+    return (this->_fpval != rhs.getRawBits());
 }
 
 Fixed Fixed::operator+(Fixed const &rhs) const
 {
     Fixed tmp;
-    tmp._fpval = this->_fpval + rhs._fpval;
+    tmp._fpval = this->_fpval + rhs.getRawBits();
     return (tmp);
 }
 
 Fixed Fixed::operator-(Fixed const &rhs) const
 {
     Fixed tmp;
-    tmp._fpval = this->_fpval - rhs._fpval;
+    tmp._fpval = this->_fpval - rhs.getRawBits();
     return (tmp);
 }
 
@@ -179,7 +178,7 @@ const Fixed &Fixed::min(Fixed const &a, Fixed const &b)
 
 Fixed &Fixed::max(Fixed &a, Fixed &b)
 {
-    if (b < a)
+    if (b > a)
         return (b);
     return (a);
 }

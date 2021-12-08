@@ -3,6 +3,11 @@ Err
 - https://stackoverflow.com/questions/9066052/copy-constructor-parameters
 
 
+Ex00
+1. [Orthodox class](https://flylib.com/books/en/2.937.1.244/1/)
+- specifies four required functions
+- default constructor, the copy constructor, the copy assignment operator, and the destructor. 
+
 Ex01
 - roundf - floor makes negative numbers round up
 - // We can call other private variables of classes in another class's member functions
@@ -32,3 +37,17 @@ https://stackoverflow.com/questions/7035356/c-why-static-member-function-cant-be
 
 const' qualifier may not be applied to a reference
 
+
+Bitwise operator for float
+- https://stackoverflow.com/questions/1723575/how-to-perform-a-bitwise-operation-on-floating-point-numbers
+
+
+Ex02
+```
+    static Fixed &min(Fixed &a, Fixed &b);
+    // don't really understand the const requirement
+    //  i.e. why need const?  static Fixed &const min(Fixed &const a, Fixed &const b); -> why couldn't i do this?
+    const static Fixed &min(Fixed const &a, Fixed const &b);
+    static Fixed &max(Fixed &a, Fixed &b);
+    const static Fixed &max(Fixed const &a, Fixed const &b);
+```

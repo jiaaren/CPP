@@ -6,7 +6,7 @@
 /*   By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 00:52:41 by jkhong            #+#    #+#             */
-/*   Updated: 2021/12/03 01:07:06 by jkhong           ###   ########.fr       */
+/*   Updated: 2021/12/09 00:56:55 by jkhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,17 @@
 class Fixed
 {
 public:
-	Fixed(void);
-	Fixed(Fixed const &n);
-	~Fixed(void);
+    Fixed(void);
+    Fixed(Fixed const &n);
+    ~Fixed(void);
 
-	Fixed &operator=(Fixed const &rhs);
-	int getRawBits(void) const;
-	void setRawBits(int const raw);
+    Fixed &operator=(Fixed const &rhs);
+    int getRawBits(void) const;
+    void setRawBits(int const raw);
 
 private:
-	int _fpval;
-	static int const _frac_bits;
+    int _fpval;
+    static int const _frac_bits;
 };
 
 #endif
