@@ -51,3 +51,8 @@ Ex02
     static Fixed &max(Fixed &a, Fixed &b);
     const static Fixed &max(Fixed const &a, Fixed const &b);
 ```
+Triangle
+https://www.geeksforgeeks.org/check-whether-a-given-point-lies-inside-a-triangle-or-not/   
+
+Binary Space partitioning
+- https://www.youtube.com/watch?v=yTRzfKh4Tg0

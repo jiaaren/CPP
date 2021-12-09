@@ -1,17 +1,17 @@
 #include "Point.hpp"
 #include "Fixed.hpp"
 
-Point::Point(void) : x(Fixed(0)), y(Fixed(0))
+Point::Point(void) : _x(Fixed(0)), _y(Fixed(0))
 {
     return;
 }
 
-Point::Point(Point const &n) : x(n.getX()), y(n.getY())
+Point::Point(Point const &n) : _x(n.getX()), _y(n.getY())
 {
     return;
 }
 
-Point::Point(const float x, const float y) : x(Fixed(x)), y(Fixed(y))
+Point::Point(const float x, const float y) : _x(Fixed(x)), _y(Fixed(y))
 {
     return;
 }
@@ -29,10 +29,10 @@ Point &Point::operator=(Point const &rhs)
 
 Fixed Point::getX(void) const
 {
-    return (this->x);
+    return (this->_x);
 }
 
 Fixed Point::getY(void) const
 {
-    return (this->y);
+    return (this->_y);
 }

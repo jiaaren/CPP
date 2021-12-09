@@ -51,6 +51,9 @@ public:
     Fixed   operator++(int);
     Fixed   operator--(int);
 
+    // inverse
+    Fixed   operator-(void);
+
     static       Fixed &min(Fixed &a, Fixed &b);
     const static Fixed &min(Fixed const &a, Fixed const &b);
     static       Fixed &max(Fixed &a, Fixed &b);

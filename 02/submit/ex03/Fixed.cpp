@@ -6,7 +6,7 @@
 /*   By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 00:59:28 by jkhong            #+#    #+#             */
-/*   Updated: 2021/12/09 01:36:50 by jkhong           ###   ########.fr       */
+/*   Updated: 2021/12/09 16:02:40 by jkhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,6 +157,12 @@ Fixed Fixed::operator--(int)
 {
     Fixed tmp(*this);
     (this->_fpval)--;
+    return (tmp);
+}
+
+Fixed Fixed::operator-(void)
+{
+    Fixed tmp = *this * Fixed(-1);
     return (tmp);
 }
 
