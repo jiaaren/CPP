@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,21 +11,21 @@
 /* ************************************************************************** */
 
 #include <iostream>
-#include "Cat.hpp"
+#include "WrongCat.hpp"
 
-Cat::Cat(void) : Animal("Cat")
+WrongCat::WrongCat(void) : WrongAnimal("WrongCat")
 {
-    std::cout << "Cat constructed\n";
+    std::cout << "WrongCat constructed\n";
     return;
 }
 
-Cat::~Cat(void)
+WrongCat::~WrongCat(void)
 {
-    std::cout << "Cat destructed\n";
+    std::cout << "WrongCat destructed\n";
     return;
 }
 
-void Cat::makeSound(void) const
+void WrongCat::makeSound(void) const
 {
     std::cout << "meow meow" << std::endl;
     return;

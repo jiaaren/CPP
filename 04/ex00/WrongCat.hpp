@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/09 18:25:53 by jkhong            #+#    #+#             */
-/*   Updated: 2021/12/09 18:34:56 by jkhong           ###   ########.fr       */
+/*   Created: 2021/12/09 18:24:18 by jkhong            #+#    #+#             */
+/*   Updated: 2021/12/09 18:36:42 by jkhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Cat.hpp"
+#ifndef WRONGCAT_HPP
+#define WRONGCAT_HPP
 
-Cat::Cat(void) : Animal("Cat")
-{
-    std::cout << "Cat constructed\n";
-    return;
-}
+#include "WrongAnimal.hpp"
 
-Cat::~Cat(void)
+class WrongCat : public WrongAnimal
 {
-    std::cout << "Cat destructed\n";
-    return;
-}
+public:
+    WrongCat(void);
+    ~WrongCat(void);
+    void makeSound(void) const;
+};
 
-void Cat::makeSound(void) const
-{
-    std::cout << "meow meow" << std::endl;
-    return;
-}
+#endif
