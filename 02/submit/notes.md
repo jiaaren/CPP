@@ -51,8 +51,22 @@ Ex02
     static Fixed &max(Fixed &a, Fixed &b);
     const static Fixed &max(Fixed const &a, Fixed const &b);
 ```
-Triangle
-https://www.geeksforgeeks.org/check-whether-a-given-point-lies-inside-a-triangle-or-not/   
+- Impossible to store `inf` for float
+    - the number HAS to be stored in the form of an int
+```
+Fixed Fixed::operator/(Fixed const &rhs) const
+{
+    Fixed tmp;
+    tmp._fpval = this->_fpval / rhs.toFloat();
+    std::cout << tmp._fpval << std::endl;
+    return (tmp);
+}
+```
 
+
+Ex03
+Triangle Area (dependent on precision of decimals)
+- https://www.geeksforgeeks.org/check-whether-a-given-point-lies-inside-a-triangle-or-not/   
+- https://www.youtube.com/watch?v=qObJQesvZUU
 Binary Space partitioning
 - https://www.youtube.com/watch?v=yTRzfKh4Tg0
