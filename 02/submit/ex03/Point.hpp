@@ -6,7 +6,7 @@
 /*   By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 02:01:08 by jkhong            #+#    #+#             */
-/*   Updated: 2021/12/09 17:17:33 by jkhong           ###   ########.fr       */
+/*   Updated: 2021/12/09 17:24:59 by jkhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ public:
     Point(const float x, const float y);
     ~Point(void);
 
-    Point &operator=(Point const &rhs);
+    Point operator=(Point const &rhs);
     Fixed getX(void) const;
     Fixed getY(void) const;
 

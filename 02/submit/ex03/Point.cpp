@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Point.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/09 17:19:47 by jkhong            #+#    #+#             */
+/*   Updated: 2021/12/09 17:25:08 by jkhong           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Point.hpp"
 #include "Fixed.hpp"
 
@@ -21,10 +33,10 @@ Point::~Point(void)
     return;
 }
 
-Point &Point::operator=(Point const &rhs)
+Point Point::operator=(Point const &rhs)
 {
-    *this = rhs;
-    return (*this);
+    Point tmp(rhs);
+    return (tmp);
 }
 
 Fixed Point::getX(void) const
