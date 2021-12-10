@@ -6,7 +6,7 @@
 /*   By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 18:24:18 by jkhong            #+#    #+#             */
-/*   Updated: 2021/12/10 02:07:58 by jkhong           ###   ########.fr       */
+/*   Updated: 2021/12/10 15:23:42 by jkhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ public:
     Cat(void);
     ~Cat(void);
     virtual void makeSound(void) const;
+    virtual void beDeep(void) const;
 };
 
 #endif

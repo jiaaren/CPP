@@ -6,7 +6,7 @@
 /*   By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 18:12:02 by jkhong            #+#    #+#             */
-/*   Updated: 2021/12/09 18:33:42 by jkhong           ###   ########.fr       */
+/*   Updated: 2021/12/10 15:23:20 by jkhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,11 @@ void Animal::setType(std::string const type)
 void Animal::makeSound(void) const
 {
     std::cout << "beep boop" << std::endl;
+    return;
+}
+
+void Animal::beDeep(void) const
+{
+    std::cout << "???" << std::endl;
     return;
 }

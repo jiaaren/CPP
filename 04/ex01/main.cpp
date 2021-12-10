@@ -6,7 +6,7 @@
 /*   By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 02:10:33 by jkhong            #+#    #+#             */
-/*   Updated: 2021/12/10 02:22:24 by jkhong           ###   ########.fr       */
+/*   Updated: 2021/12/10 15:27:32 by jkhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,25 @@
 int main(void)
 {
     int tot = 100;
-    Animal *animals[tot];
-    Animal *a;
+    Animal **animals = new Animal *[100];
+    // initialise brain
+    Brain::fillQuotes();
     // initialisation
     for (int i = 0; i < tot; i++)
     {
         std::cout << "<------" << i << "------>" << std::endl;
         if (i % 2 == 0)
-            a = new Cat();
+            animals[i] = new Cat();
         else
-            a = new Dog();
-        animals[i] = a;
+            animals[i] = new Dog();
+        animals[i]->makeSound();
+        animals[i]->beDeep();
     }
     for (int i = 0; i < tot; i++)
     {
         std::cout << "<------" << i << "------>" << std::endl;
         delete animals[i];
     }
+    delete animals;
     return (0);
 }
