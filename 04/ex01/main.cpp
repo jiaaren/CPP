@@ -6,7 +6,7 @@
 /*   By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 02:10:33 by jkhong            #+#    #+#             */
-/*   Updated: 2021/12/10 15:27:32 by jkhong           ###   ########.fr       */
+/*   Updated: 2021/12/10 16:54:49 by jkhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@ int main(void)
         std::cout << "<------" << i << "------>" << std::endl;
         delete animals[i];
     }
-    delete animals;
+    delete[] animals;
     return (0);
 }
