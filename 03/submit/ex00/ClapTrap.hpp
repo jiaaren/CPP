@@ -6,7 +6,7 @@
 /*   By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 01:17:47 by jkhong            #+#    #+#             */
-/*   Updated: 2021/12/11 23:20:21 by jkhong           ###   ########.fr       */
+/*   Updated: 2021/12/12 00:01:55 by jkhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ private:
     std::string _clapName;
     int _maxHp;
     int _maxEp;
-    int _maxAtk;
     int _hp;
     int _ep;
     int _atk;
