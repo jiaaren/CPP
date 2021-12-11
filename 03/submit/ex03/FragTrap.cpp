@@ -6,55 +6,64 @@
 /*   By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 11:41:37 by jkhong            #+#    #+#             */
-/*   Updated: 2021/12/11 12:21:12 by jkhong           ###   ########.fr       */
+/*   Updated: 2021/12/11 23:33:07 by jkhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#ifndef FRAGTRAP_H
-#define FRAGTRAP_H
 
 #include <iostream>
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(std::string const name) : ClapTrap(name)
+FragTrap::FragTrap(std::string const name) : ClapTrap(name),
+                                             _trapMaxHp(100), _trapMaxEp(100), _trapMaxAtk(30)
 {
-    this->_hp = 100;
-    this->_ep = 100;
-    this->_atk = 30;
-    this->_clapName = "FragTrap";
-    std::cout << "FragTrap " << name << " initiated" << std::endl;
+    _hp = _maxHp = _trapMaxHp;
+    _ep = _maxEp = _trapMaxEp;
+    _atk = _trapMaxAtk;
+    _clapName = "FragTrap";
+    std::cout << "FragTrap " << _name << " initiated" << std::endl;
+    return;
+}
+
+FragTrap::FragTrap(FragTrap const &st) : ClapTrap(st),
+                                         _trapMaxHp(100), _trapMaxEp(20), _trapMaxAtk(20)
+{
+    *this = st;
     return;
 }
 
 FragTrap::~FragTrap(void)
 {
-    std::cout << "FragTrap " << this->_name << " destroyed" << std::endl;
+    std::cout << "FragTrap " << _name << " destroyed" << std::endl;
     return;
+}
+
+FragTrap &FragTrap::operator=(FragTrap const &rhs)
+{
+    ClapTrap::operator=(rhs);
+    return (*this);
 }
 
 void FragTrap::attack(std::string const &target)
 {
-    if (this->check_ep(this->_atk))
+    if (check_ep(_atk))
     {
-        std::cout << this->getFullName() << " hugs "
-                  << target << " for " << this->_atk << " damage" << std::endl;
-        this->reduce_ep(this->_atk);
+        std::cout << getFullName() << " hugs "
+                  << target << " for " << _atk << " damage" << std::endl;
+        reduce_ep(_atk);
     }
     return;
 }
 
 void FragTrap::highFivesGuys(void)
 {
-    std::cout << this->getFullName() << " requests high fives from its comrades"
+    std::cout << getFullName() << " requests high fives from its comrades"
               << std::endl;
-    if (!this->check_ep(25))
-        std::cout << this->getFullName() << " receives no responses :(" << std::endl;
+    if (!check_ep(25))
+        std::cout << getFullName() << " receives no responses :(" << std::endl;
     else
     {
-        std::cout << this->getFullName() << " feels validated :)" << std::endl;
-        this->reduce_ep(25);
+        std::cout << getFullName() << " feels validated :)" << std::endl;
+        reduce_ep(25);
     }
     return;
 }
-
-#endif

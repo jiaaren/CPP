@@ -6,7 +6,7 @@
 /*   By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 15:16:48 by jkhong            #+#    #+#             */
-/*   Updated: 2021/12/11 17:35:47 by jkhong           ###   ########.fr       */
+/*   Updated: 2021/12/11 23:59:33 by jkhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,18 @@ int main(void)
     bot.highFivesGuys();
     bot.attack("goomba");
     bot.whoAmI();
+
+    // DiamondTrap bot2("Poob");
+    // bot2.attack("slime");
+    // bot2.takeDamage(5);
+    // bot2.beRepaired(10);
+    // bot2.takeDamage(20);
+    // bot2 = bot;
+    // bot2.beRepaired(1);
+    // bot2.attack("goomba");
+    // bot2.guardGate();
+    // bot2.highFivesGuys();
+    // bot2.attack("goomba");
+    // bot2.whoAmI();
     return (0);
 }
