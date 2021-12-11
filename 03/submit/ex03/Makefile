@@ -6,14 +6,14 @@
 #    By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/11 12:23:00 by jkhong            #+#    #+#              #
-#    Updated: 2021/12/11 12:26:01 by jkhong           ###   ########.fr        #
+#    Updated: 2021/12/11 17:35:30 by jkhong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS	=	ClapTrap.cpp	ScavTrap.cpp	FragTrap.cpp	DiamondTrap.cpp		main.cpp
 NAME 	= 	a.out
 OBJS	=	$(SRCS:.cpp=.o)
-FLAGS	=	-Wall -Wextra -Werror -Wshadow -Wno-shadow! -std=c++98 -pedantic-errors
+FLAGS	=	-Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98 -pedantic-errors
 
 all:	$(NAME)
 
