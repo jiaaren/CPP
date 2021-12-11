@@ -6,7 +6,7 @@
 /*   By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 00:51:49 by jkhong            #+#    #+#             */
-/*   Updated: 2021/12/06 01:32:05 by jkhong           ###   ########.fr       */
+/*   Updated: 2021/12/11 12:51:49 by jkhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,12 @@ class DiamondTrap : public FragTrap, public ScavTrap
 {
 private:
     std::string _name;
-    std::string _clap_name;
 
 public:
     DiamondTrap(std::string const name);
     ~DiamondTrap(void);
     void attack(const std::string &target);
     void whoAmI(void) const;
+    // replaces ClapTrap's getFullName
+    virtual std::string getFullName(void) const;
 };

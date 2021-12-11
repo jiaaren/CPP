@@ -6,7 +6,7 @@
 /*   By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 00:51:53 by jkhong            #+#    #+#             */
-/*   Updated: 2021/12/06 01:33:02 by jkhong           ###   ########.fr       */
+/*   Updated: 2021/12/11 12:51:46 by jkhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 
 // no default constructor exists for class "ClapTrap"
 // if virtual keyword present
-DiamondTrap::DiamondTrap(std::string const name) : ClapTrap(name), FragTrap(name), ScavTrap(name), _clap_name("DiamondTrap")
+DiamondTrap::DiamondTrap(std::string const name) : ClapTrap(name), FragTrap(name), ScavTrap(name)
 {
-    ClapTrap::_name = _name + _clap_name;
+    ClapTrap::_name = name + " DiamondTrap";
+    this->_clapName = "DiamondTrap";
     DiamondTrap::_name = name;
     this->_hp = FragTrap::_hp;
     this->_ep = ScavTrap::_ep;
@@ -38,8 +39,13 @@ DiamondTrap::~DiamondTrap(void)
     return;
 }
 
+std::string DiamondTrap::getFullName(void) const
+{
+    return (this->_clapName + " " + this->_name);
+}
+
 void DiamondTrap::whoAmI(void) const
 {
-    std::cout << "I am " << this->_clap_name << " " << this->_name << std::endl;
+    std::cout << "I am " << this->getFullName() << std::endl;
     return;
 }

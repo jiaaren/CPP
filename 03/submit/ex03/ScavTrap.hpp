@@ -6,7 +6,7 @@
 /*   By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 11:41:39 by jkhong            #+#    #+#             */
-/*   Updated: 2021/12/06 01:11:39 by jkhong           ###   ########.fr       */
+/*   Updated: 2021/12/11 12:28:28 by jkhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <string>
 #include "ClapTrap.hpp"
 
-// included virtual for ex03
+// added virtual keyword
 class ScavTrap : virtual public ClapTrap
 {
 public:
