@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   my_main.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/09 18:24:18 by jkhong            #+#    #+#             */
-/*   Updated: 2021/12/12 00:10:47 by jkhong           ###   ########.fr       */
+/*   Created: 2021/12/13 01:37:01 by jkhong            #+#    #+#             */
+/*   Updated: 2021/12/13 01:37:17 by jkhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-#define CAT_HPP
+#include "AAnimal.hpp"
 
-#include "Animal.hpp"
-
-class Cat : public Animal
+int main(void)
 {
-public:
-    Cat(void);
-    Cat(Cat const &c);
-    ~Cat(void);
-    Cat &operator=(Cat const &rhs);
-    virtual void makeSound(void) const;
-};
-
-#endif
+    AAnimal a;
+    return (0);
+}

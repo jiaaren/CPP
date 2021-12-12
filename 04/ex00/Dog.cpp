@@ -6,7 +6,7 @@
 /*   By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 18:25:53 by jkhong            #+#    #+#             */
-/*   Updated: 2021/12/09 18:35:48 by jkhong           ###   ########.fr       */
+/*   Updated: 2021/12/12 12:08:35 by jkhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,23 @@ Dog::Dog(void) : Animal("Dog")
     return;
 }
 
+Dog::Dog(Dog const &c) : Animal("Dog")
+{
+    std::cout << "Dog constructed\n";
+    *this = c;
+    return;
+}
+
 Dog::~Dog(void)
 {
     std::cout << "Dog destructed\n";
     return;
+}
+
+Dog &Dog::operator=(Dog const &rhs)
+{
+    (void)rhs;
+    return (*this);
 }
 
 void Dog::makeSound(void) const

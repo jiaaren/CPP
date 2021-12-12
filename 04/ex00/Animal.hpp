@@ -6,7 +6,7 @@
 /*   By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 18:12:11 by jkhong            #+#    #+#             */
-/*   Updated: 2021/12/10 01:58:54 by jkhong           ###   ########.fr       */
+/*   Updated: 2021/12/12 10:05:53 by jkhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ public:
     Animal(Animal const &a);
     // virtual destructor
     virtual ~Animal(void);
-    Animal &operator=(Animal &rhs);
+    Animal &operator=(Animal const &rhs);
     std::string getType(void) const;
     void setType(std::string const type);
     virtual void makeSound(void) const;

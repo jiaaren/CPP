@@ -6,7 +6,7 @@
 /*   By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 18:36:04 by jkhong            #+#    #+#             */
-/*   Updated: 2021/12/09 18:44:51 by jkhong           ###   ########.fr       */
+/*   Updated: 2021/12/12 12:12:19 by jkhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 
 int main(void)
 {
+    std::cout << "<-----Test Animal----->" << std::endl;
     const Animal *meta = new Animal();
     const Animal *j = new Dog();
     const Animal *i = new Cat();
@@ -34,6 +35,8 @@ int main(void)
     delete j;
     delete i;
 
+    std::cout << std::endl
+              << "<-----Test WrongAnimal----->" << std::endl;
     const WrongAnimal *meta2 = new WrongAnimal();
     const WrongAnimal *i2 = new WrongCat();
 

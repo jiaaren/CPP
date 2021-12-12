@@ -6,7 +6,7 @@
 /*   By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 18:12:02 by jkhong            #+#    #+#             */
-/*   Updated: 2021/12/09 18:33:42 by jkhong           ###   ########.fr       */
+/*   Updated: 2021/12/12 10:06:03 by jkhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,20 +37,20 @@ Animal::~Animal(void)
     return;
 }
 
-Animal &Animal::operator=(Animal &rhs)
+Animal &Animal::operator=(Animal const &rhs)
 {
-    this->setType(rhs.getType());
+    setType(rhs.getType());
     return (*this);
 }
 
 std::string Animal::getType(void) const
 {
-    return (this->_type);
+    return (_type);
 }
 
 void Animal::setType(std::string const type)
 {
-    this->_type = type;
+    _type = type;
     return;
 }
 

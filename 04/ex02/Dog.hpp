@@ -6,7 +6,7 @@
 /*   By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 18:24:18 by jkhong            #+#    #+#             */
-/*   Updated: 2021/12/10 16:57:37 by jkhong           ###   ########.fr       */
+/*   Updated: 2021/12/13 01:34:22 by jkhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,13 @@ private:
 
 public:
     Dog(void);
+    Dog(Dog const &c);
     ~Dog(void);
+    Dog &operator=(Dog const &rhs);
     virtual void makeSound(void) const;
     virtual void beDeep(void) const;
+    // getter
+    Brain *getBrain(void) const;
 };
 
 #endif
