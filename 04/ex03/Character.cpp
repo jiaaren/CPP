@@ -6,7 +6,7 @@
 /*   By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 17:45:54 by jkhong            #+#    #+#             */
-/*   Updated: 2021/12/10 23:57:45 by jkhong           ###   ########.fr       */
+/*   Updated: 2021/12/13 12:35:59 by jkhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,67 @@
 
 int const Character::_maxMateria = 4;
 
+Character::Character(void) : _name("(nil)"), _held(0)
+{
+    std::cout << "Character initiated withh empty name" << std::endl;
+    _initialiseSlots();
+    return;
+}
+
+Character::Character(std::string const &name) : _name(name), _held(0)
+{
+    std::cout << _name << " is alive!" << std::endl;
+    _initialiseSlots();
+    return;
+}
+
+Character::Character(Character const &c) : _name(c.getName()), _held(0)
+{
+    std::cout << _name << " is alive!" << std::endl;
+    _initialiseSlots();
+    *this = c;
+    return;
+}
+
+Character::Character(ICharacter const &c) : _name(c.getName()), _held(0)
+{
+    std::cout << _name << " is alive!" << std::endl;
+    _initialiseSlots();
+    // uses ICharacter overloaded assignment operator
+    Character::operator=(c);
+    return;
+}
+
+Character &Character::operator=(Character const &rhs)
+{
+    _clearMateria();
+    for (int i = 0; i < _maxMateria; i++)
+        if (rhs.getSlot(i))
+            _slots[i] = rhs.getSlot(i)->clone();
+    _name = rhs.getName();
+    _held = rhs.getHeld();
+    return (*this);
+}
+
+ICharacter &Character::operator=(ICharacter const &rhs)
+{
+    // uses Character overloaded assignment operator
+    std::cout << "hi\n";
+    *this = *(Character *)&rhs;
+    return (*this);
+}
+
+Character::~Character(void)
+{
+    std::cout << _name << " perishes..." << std::endl;
+    _clearMateria();
+    return;
+}
+
 void Character::_initialiseSlots(void)
 {
     for (int i = 0; i < _maxMateria; i++)
-        (this->_slots)[i] = NULL;
+        _slots[i] = NULL;
     return;
 }
 
@@ -26,79 +83,46 @@ void Character::_clearMateria(void)
 {
     for (int i = 0; i < _maxMateria; i++)
     {
-        if ((this->_slots)[i])
-            delete (this->_slots)[i];
-        (this->_slots)[i] = NULL;
+        if ((_slots[i]))
+            delete (_slots[i]);
+        _slots[i] = NULL;
     }
-    this->_held = 0;
-    return;
-}
-
-Character::Character(std::string const &name) : _name(name), _held(0)
-{
-    std::cout << this->_name << " is alive!" << std::endl;
-    this->_initialiseSlots();
-    return;
-}
-
-Character::Character(ICharacter const &c) : _name(c.getName()), _held(0)
-{
-    // upcasting
-    Character &x = (Character &)c;
-    std::cout << this->_name << " is cloned!" << std::endl;
-    this->_initialiseSlots();
-    for (int i = 0; i < _maxMateria; i++)
-        if (x.getSlot(i))
-            (this->_slots)[i] = x.getSlot(i)->clone();
-    return;
-}
-
-ICharacter &Character::operator=(ICharacter const &rhs)
-{
-    // upcasting
-    Character &x = (Character &)rhs;
-    std::cout << this->_name << " copied " << x.getName() << std::endl;
-    this->_clearMateria();
-    for (int i = 0; i < _maxMateria; i++)
-        if (x.getSlot(i))
-            (this->_slots)[i] = x.getSlot(i)->clone();
-    this->_name = x.getName();
-    this->_held = x.getHeld();
-    return (*this);
-}
-
-Character::~Character(void)
-{
-    this->_clearMateria();
-    std::cout << this->_name << " perishes..." << std::endl;
+    _held = 0;
     return;
 }
 
 std::string const &Character::getName(void) const
 {
-    return (this->_name);
+    return (_name);
 }
 
 void Character::equip(AMateria *m)
 {
-    if (this->_held >= 4)
+    if (_held >= 4)
         std::cout << "Inventory full!" << std::endl;
     else
     {
-        (this->_slots)[this->_held] = m;
-        (this->_held)++;
+        _slots[_held] = m;
+        (_held)++;
+        std::cout << m->getType() << " materia equipped" << std::endl;
     }
     return;
 }
 
 void Character::_sortMateria(void)
 {
-    for (int i = 0; i < _maxMateria && (this->_slots)[i] == NULL; i++)
+    for (int i = 0; i < _maxMateria; i++)
     {
-        for (int j = i + 1; j < _maxMateria && (this->_slots)[j]; j++)
+        if (_slots[i] != NULL)
+            continue;
+        for (int j = i + 1; j < _maxMateria; j++)
         {
-            (this->_slots)[i] = (this->_slots)[j];
-            (this->_slots)[j] = NULL;
+            if (_slots[j] == NULL)
+                continue;
+            _slots[i] = _slots[j];
+            _slots[j] = NULL;
+            // need break to avoid replacing empty more than once
+            break;
         }
     }
     return;
@@ -106,7 +130,7 @@ void Character::_sortMateria(void)
 
 bool Character::_hasMateria(int idx)
 {
-    if (idx < 0 || idx >= 4 || !(this->_slots)[idx])
+    if (idx < 0 || idx >= 4 || !_slots[idx])
     {
         std::cout << "Materia not found" << std::endl;
         return (false);
@@ -116,28 +140,28 @@ bool Character::_hasMateria(int idx)
 
 void Character::unequip(int idx)
 {
-    if (!(this->_hasMateria(idx)))
+    if (!(_hasMateria(idx)))
         return;
-    (this->_slots)[idx] = NULL;
-    std::cout << "Unequiped materia!" << std::endl;
-    this->_sortMateria();
-    (this->_held)--;
+    std::cout << "Unequiped " << _slots[idx]->getType() << " materia!" << std::endl;
+    _slots[idx] = NULL;
+    _sortMateria();
+    _held--;
 }
 
 void Character::use(int idx, ICharacter &target)
 {
-    if (!(this->_hasMateria(idx)))
+    if (!(_hasMateria(idx)))
         return;
-    (this->_slots)[idx]->use(target);
+    _slots[idx]->use(target);
     return;
 }
 
 AMateria *Character::getSlot(int idx) const
 {
-    return ((this->_slots)[idx]);
+    return (_slots[idx]);
 }
 
 int Character::getHeld(void) const
 {
-    return (this->_held);
+    return (_held);
 }
