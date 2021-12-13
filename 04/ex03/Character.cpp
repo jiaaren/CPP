@@ -6,7 +6,7 @@
 /*   By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 17:45:54 by jkhong            #+#    #+#             */
-/*   Updated: 2021/12/13 12:35:59 by jkhong           ###   ########.fr       */
+/*   Updated: 2021/12/13 15:17:01 by jkhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ Character &Character::operator=(Character const &rhs)
 ICharacter &Character::operator=(ICharacter const &rhs)
 {
     // uses Character overloaded assignment operator
-    std::cout << "hi\n";
     *this = *(Character *)&rhs;
     return (*this);
 }

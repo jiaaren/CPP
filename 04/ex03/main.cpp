@@ -6,7 +6,7 @@
 /*   By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 17:05:59 by jkhong            #+#    #+#             */
-/*   Updated: 2021/12/13 14:41:04 by jkhong           ###   ########.fr       */
+/*   Updated: 2021/12/13 15:15:49 by jkhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,12 +88,19 @@ int main(void)
 
     print("\n<---- Testing equipment ---->");
     ICharacter *test = new Character("test");
-    print("** Accessing materias that do not exist");
+    print("** Accessing materias that do not exist (use)");
     test->use(0, *bob);
     test->use(1, *bob);
     test->use(2, *bob);
     test->use(-1, *bob);
     test->use(10, *bob);
+
+    print("\n** Accessing materias that do not exist (unequip)");
+    test->unequip(0);
+    test->unequip(1);
+    test->unequip(2);
+    test->unequip(-1);
+    test->unequip(10);
 
     print("\n** Accessing some materias that exist");
     AMateria *tmp1 = src->createMateria("ice");

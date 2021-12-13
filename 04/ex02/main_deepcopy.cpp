@@ -6,7 +6,7 @@
 /*   By: jkhong <jkhong@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 12:12:39 by jkhong            #+#    #+#             */
-/*   Updated: 2021/12/13 14:59:35 by jkhong           ###   ########.fr       */
+/*   Updated: 2021/12/13 15:11:22 by jkhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,16 @@ int main(void)
     print(dd1->getBrain()->getIndexIdea(0));
     print(dd2->getBrain()->getIndexIdea(0));
 
+    print("\n<--- Delete original --->");
+    delete d1;
+    print(dd2->getBrain()->getIndexIdea(0));
+
     print("\n<--- Test Copy Constructor (expect same output as above) --->");
-    Dog dd3 = *dd1;
+    Dog dd3 = *dd2;
     print(dd3.getType());
     dd3.makeSound();
     print(dd3.getBrain()->getIndexIdea(0));
 
-    delete d1;
     delete d2;
     // no need to explicitly call destructor, however needed to make sure that
     // Dog.cpp deletes dynamically allocated brain
@@ -80,13 +83,16 @@ int main(void)
     print(cc1->getBrain()->getIndexIdea(0));
     print(cc2->getBrain()->getIndexIdea(0));
 
+    print("\n<--- Delete original --->");
+    delete c1;
+    print(cc2->getBrain()->getIndexIdea(0));
+
     print("\n<--- Test Copy Constructor (expect same output as above) --->");
-    Cat cc3 = *cc1;
+    Cat cc3 = *cc2;
     print(cc3.getType());
     cc3.makeSound();
     print(cc3.getBrain()->getIndexIdea(0));
 
-    delete c1;
     delete c2;
     return (0);
 }
