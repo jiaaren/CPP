@@ -50,7 +50,7 @@ int main(void)
     print("\n<--- try/catch on too low initialisation --->");
     try
     {
-        Bureaucrat y("mrtoohigh", 151);
+        Bureaucrat y("mrtoolow", 151);
     }
     catch (std::exception const &e)
     {
