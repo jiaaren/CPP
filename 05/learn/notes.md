@@ -35,3 +35,7 @@ Stackoverflow
 Issues noted
 - including `public` solved the issue
   - `class GradeTooHighException : public std::exception`
+
+
+What's virtual for inheritance for?
+- don't understand what's the best practice...
