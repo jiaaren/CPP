@@ -38,11 +38,11 @@ void Form::_constructorPrint(void) const
     return;
 }
 
-Form::~Form(void)
-{
-    std::cout << "Form " << _name << " destructed." << std::endl;
-    return;
-}
+// Form::~Form(void)
+// {
+//     std::cout << "Form " << _name << " destructed." << std::endl;
+//     return;
+// }
 
 Form &Form::operator=(Form const &rhs)
 {
@@ -69,6 +69,12 @@ void Form::beSigned(Bureaucrat const &b)
     return;
 }
 
+void Form::setTarget(std::string const &target)
+{
+    _target = target;
+    return;
+}
+
 std::string Form::getName(void) const
 {
     return (_name);
@@ -89,12 +95,28 @@ int Form::getGradeToExec(void) const
     return (_gradeToExec);
 }
 
+std::string Form::getTarget(void) const
+{
+    return (_target);
+}
+
 void Form::checkGrade(int const &grade) const
 {
     if (grade < MAX_GRADE)
         throw GradeTooHighException();
     if (grade > MIN_GRADE)
         throw GradeTooLowException();
+    return;
+}
+
+void Form::checkExec(Bureaucrat const &executor) const
+{
+    if (_gradeToExec < executor.getGrade())
+    {
+        std::cout << "Bureaucrat too low grade to execute form" << std::endl;
+        throw GradeTooLowException();
+    }
+    return;
 }
 
 std::ostream &operator<<(std::ostream &o, Form const &rhs)
@@ -102,6 +124,6 @@ std::ostream &operator<<(std::ostream &o, Form const &rhs)
     o << "Form " << rhs.getName() << ". "
       << "status: ( signed: " << std::boolalpha << rhs.getSigned() << ", "
       << "gradeToSign: " << rhs.getGradeToSign() << ", gradeToExec: " << rhs.getGradeToExec()
-      << " )" << std::endl;
+      << " )";
     return (o);
 }

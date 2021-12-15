@@ -1,29 +1,29 @@
 #ifndef SHRUBBERYCREATIONFORM_HPP
 #define SHRUBBERYCREATIONFORM_HPP
 
+#include <string>
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
-#include <string>
+
+#ifndef CONST
+#define CONST
 
 #define MIN_SIGN 145
 #define MIN_EXEC 137
+#define FORM_NAME "shrubbery creation"
+
+#endif
 
 class ShrubberyCreationForm : public Form
 {
-private:
-    std::string const _target;
-    // replace here with private function
-
 public:
     ShrubberyCreationForm(void);
     ShrubberyCreationForm(std::string const &target);
     ShrubberyCreationForm(ShrubberyCreationForm const &scf);
     virtual ~ShrubberyCreationForm(void);
     ShrubberyCreationForm &operator=(ShrubberyCreationForm const &rhs);
-    // getter
-    std::string getTarget(void) const;
-    // exec
-    void execute(Bureaucrat const &executor);
+    // executor
+    virtual void execute(Bureaucrat const &executor) const;
 };
 
 #endif

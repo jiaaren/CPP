@@ -102,6 +102,6 @@ std::ostream &operator<<(std::ostream &o, Form const &rhs)
     o << "Form " << rhs.getName() << ". "
       << "status: ( signed: " << std::boolalpha << rhs.getSigned() << ", "
       << "gradeToSign: " << rhs.getGradeToSign() << ", gradeToExec: " << rhs.getGradeToExec()
-      << " )" << std::endl;
+      << " )";
     return (o);
 }

@@ -31,8 +31,9 @@ public:
     void decrementGrade(unsigned int const &amt);
     // check grade
     void checkGrade(int const &grade) const;
-    // sign form (no const)
-    void signForm(Form &f);
+    // actions
+    void signForm(Form &f); // no const
+    void executeForm(Form const &form);
     // exceptions
     class GradeTooHighException : public std::exception
     {

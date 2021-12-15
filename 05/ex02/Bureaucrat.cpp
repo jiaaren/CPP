@@ -91,6 +91,23 @@ void Bureaucrat::signForm(Form &f)
     return;
 }
 
+void Bureaucrat::executeForm(Form const &form)
+{
+    if (!(form.getSigned()))
+    {
+        std::cout << "Form not yet signed" << std::endl;
+        return;
+    }
+    if (_grade > form.getGradeToExec())
+    {
+        std::cout << "Bureaucrat " << _name << " (grade: " << _grade << ") "
+                  << "cannot execute form " << form.getName() << " (grade: " << form.getGradeToSign() << ") "
+                  << "Grade too low" << std::endl;
+        return;
+    }
+    form.execute(*this);
+}
+
 const char *Bureaucrat::GradeTooHighException::what(void) const throw()
 {
     return "Grade will be too high, operation not allowed";

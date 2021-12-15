@@ -39,3 +39,8 @@ Issues noted
 
 What's virtual for inheritance for?
 - don't understand what's the best practice...
+
+
+Pure virtual class
+- pure virtual for destructor -> not good practice
+- https://stackoverflow.com/questions/24316700/c-abstract-class-destructor/24317407
