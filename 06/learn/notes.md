@@ -25,3 +25,7 @@
 - Currently there are compilation flags to inform implicit casting
 
 - [Reference](https://stackoverflow.com/questions/27998696/is-implicit-casting-considered-to-be-a-bad-concept)
+
+
+###
+- compared to conversions above (i.e. rearranging bits e.g. floats to ints and vice versa)
