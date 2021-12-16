@@ -25,8 +25,8 @@ public:
     // setter
     void setGrade(int const &grade);
     // decrement and increment grade
-    void incrementGrade(unsigned int const &amt);
-    void decrementGrade(unsigned int const &amt);
+    void incrementGrade(void);
+    void decrementGrade(void);
     // check grade
     void checkGrade(int const &grade) const;
     // exceptions

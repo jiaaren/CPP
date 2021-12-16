@@ -30,11 +30,11 @@ int main(void)
     std::cout << a << std::endl;
 
     print("\n<--- increment --->");
-    a.incrementGrade(29);
+    a.incrementGrade();
     std::cout << a << std::endl;
 
     print("\n<--- decrement --->");
-    a.decrementGrade(76);
+    a.decrementGrade();
     std::cout << a << std::endl;
 
     print("\n<--- try/catch on too high initialisation --->");
@@ -58,19 +58,21 @@ int main(void)
     }
 
     print("\n<--- too much increment --->");
+    Bureaucrat aa("pro", 1);
     try
     {
-        a.incrementGrade(80);
+        aa.incrementGrade();
     }
     catch (std::exception const &e)
     {
         std::cerr << e.what() << std::endl;
     }
 
-    print("\n<--- try/catch on too low initialisation --->");
+    print("\n<--- too much decrement --->");
+    Bureaucrat bb("noob", 150);
     try
     {
-        a.decrementGrade(100);
+        bb.decrementGrade();
     }
     catch (std::exception const &e)
     {

@@ -51,17 +51,17 @@ void Bureaucrat::setGrade(int const &grade)
     return;
 }
 
-void Bureaucrat::incrementGrade(unsigned int const &amt)
+void Bureaucrat::incrementGrade(void)
 {
-    checkGrade(_grade - amt);
-    _grade -= amt;
+    checkGrade(_grade - 1);
+    _grade -= 1;
     return;
 }
 
-void Bureaucrat::decrementGrade(unsigned int const &amt)
+void Bureaucrat::decrementGrade(void)
 {
-    checkGrade(_grade + amt);
-    _grade += amt;
+    checkGrade(_grade + 1);
+    _grade += 1;
     return;
 }
 
