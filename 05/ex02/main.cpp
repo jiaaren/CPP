@@ -14,7 +14,24 @@ void print(std::string str)
 
 int main(void)
 {
-    print("\n<---- PresidentialPardonForm ---->");
+    print("\n<---- Basic orthodox function testing ---->");
+    print("\n** Basic Constructor");
+    PresidentialPardonForm x;
+    std::cout << x << std::endl;
+    print("\n** Copy Constructor");
+    PresidentialPardonForm y(x);
+    std::cout << y << std::endl;
+    print("\n** Assignment");
+    Bureaucrat pro("pro", 1);
+    PresidentialPardonForm z("target");
+    pro.signForm(z);
+    pro.executeForm(z);
+    std::cout << "original     :" << z << std::endl;
+    x = z;
+    std::cout << "after assign :" << x << std::endl; // show signed and target changed
+    x.execute(pro);
+
+    print("\n\n<---- PresidentialPardonForm ---->");
     PresidentialPardonForm a("bubbles the elephant");
     Bureaucrat b("hamilton", 5);
 

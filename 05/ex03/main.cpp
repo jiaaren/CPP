@@ -5,87 +5,37 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 void print(std::string str)
 {
-    std::cout << str << std::endl;
+    std::cout << str << "\n";
     return;
 }
 
 int main(void)
 {
-    print("\n<---- PresidentialPardonForm ---->");
-    PresidentialPardonForm a("bubbles the elephant");
-    Bureaucrat b("hamilton", 5);
+    print("<--- Create new intern --->");
+    Intern boy;
 
-    print("\n<---- No sign ---->");
-    b.executeForm(a);
-    std::cout << a << std::endl;
+    print("\n<--- Create valid forms --->");
+    Form *shrub = boy.makeForm("shrubbery creation", "target1");
+    Form *pres = boy.makeForm("presidential pardon", "target2");
+    Form *robot = boy.makeForm("robotomy request", "target3");
 
-    print("\n<---- Signed ---->");
-    a.beSigned(b);
-    a.execute(b);
+    print("\n<--- Signing form --->");
+    Bureaucrat best("best", 1);
+    shrub->beSigned(best);
+    pres->beSigned(best);
+    best.signForm(*robot);
 
-    print("\n<---- Noobish bureaucrat test ---->");
-    Bureaucrat noob1("noober 1", 6);
-    noob1.executeForm(a);
-    try
-    {
-        a.execute(noob1);
-    }
-    catch (std::exception &e)
-    {
-        print(e.what());
-    }
+    print("\n<--- Creating forms that don't exist --->");
+    Form *notexist = boy.makeForm("not exit", "fake target");
+    (void)notexist;
 
-    print("\n\n\n<---- ShrubberyCreationForm ---->");
-    ShrubberyCreationForm c("santa");
-    Bureaucrat d("rudolph", 137);
-
-    print("\n<---- No sign ---->");
-    d.executeForm(c);
-    std::cout << c << std::endl;
-
-    print("\n<---- Signed ---->");
-    c.beSigned(d);
-    c.execute(d);
-
-    print("\n<---- Noobish bureaucrat test ---->");
-    Bureaucrat noob2("noober 2", 138);
-    noob2.executeForm(c);
-    try
-    {
-        c.execute(noob2);
-    }
-    catch (std::exception &e)
-    {
-        print(e.what());
-    }
-
-    print("\n\n\n<---- RobotomyRequestForm ---->");
-    RobotomyRequestForm e("student");
-    Bureaucrat f("professor", 45);
-
-    print("\n<---- No sign ---->");
-    f.executeForm(e);
-    std::cout << e << std::endl;
-
-    print("\n<---- Signed ---->");
-    e.beSigned(f);
-    e.execute(f);
-
-    print("\n<---- Noobish bureaucrat test ---->");
-    Bureaucrat noob3("noober 3", 46);
-    noob3.executeForm(e);
-    try
-    {
-        e.execute(noob3);
-    }
-    catch (std::exception &e)
-    {
-        print(e.what());
-    }
-    print("\n<---- END ---->");
-
+    print("\n<--- END --->");
+    delete shrub;
+    delete pres;
+    delete robot;
     return (0);
 }

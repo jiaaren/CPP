@@ -31,16 +31,12 @@ Intern &Intern::operator=(Intern const &rhs)
 
 Form *Intern::makeForm(std::string const &name, std::string const &target) const
 {
-    Form *tmp;
-    char *form_names[] = {"shrubbery creation", "robotomy request", "presidential pardon", NULL};
-    int i = 0;
+    const char *form_names[] = {"shrubbery creation", "robotomy request", "presidential pardon", NULL};
+    int i = -1;
 
-    while (form_names[i])
-    {
+    while (form_names[++i])
         if (name.compare(form_names[i]) == 0)
             break;
-        i++;
-    }
     switch (i)
     {
     case 0:
@@ -53,7 +49,7 @@ Form *Intern::makeForm(std::string const &name, std::string const &target) const
         return new PresidentialPardonForm(target);
         break;
     default:
-        std::cout << "Intern could not find form :(" << std::endl;
+        std::cout << "Form name doesn't exist, Intern could not find form :(" << std::endl;
     }
     return (NULL);
 }

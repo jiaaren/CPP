@@ -1,4 +1,5 @@
-SRCS    =	Bureaucrat.cpp	Form.cpp	PresidentialPardonForm.cpp	 ShrubberyCreationForm.cpp RobotomyRequestForm.cpp	main.cpp
+SRCS    =	Bureaucrat.cpp	Form.cpp	main.cpp	Intern.cpp	\
+			PresidentialPardonForm.cpp	 ShrubberyCreationForm.cpp RobotomyRequestForm.cpp	
 NAME    =	a.out
 OBJS    =   $(SRCS:.cpp=.o)
 FLAGS   =   -Wall -Wextra -Werror -std=c++98 -pedantic-errors
