@@ -29,6 +29,11 @@ int main(void)
     pres->beSigned(best);
     best.signForm(*robot);
 
+    print("\n<--- Execute form --->");
+    shrub->execute(best);
+    pres->execute(best);
+    best.executeForm(*robot);
+
     print("\n<--- Creating forms that don't exist --->");
     Form *notexist = boy.makeForm("not exit", "fake target");
     (void)notexist;
