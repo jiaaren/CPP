@@ -115,6 +115,14 @@
 - If we need to use it alot in our program, better to revisit design and flow of code
 
 #### [Summary](https://stackoverflow.com/questions/332030/when-should-static-cast-dynamic-cast-const-cast-and-reinterpret-cast-be-used)
+- <img src='cast_comparison.PNG'>
+  * static_casts used for normal casting and upcast and downcast for classes
+  * other pointer casts to use reinterpretation cast (usually to change the type of raw data)
+  * Legacy C cast is too flexible, no runtime checks
+  * Semantic check performed during compile time
+  * const and reinterpret casts **need to be use sparingly** since checks are not so present
+- [Good video reference](https://elearning.intra.42.fr/notions/piscine-c-d06-casts/subnotions/piscine-c-d06-casts-conclusion/videos/cpp_bootcamp_-_d06_-_conclusion)
+
 
 ### C++ Type cast operators
 - for creating **implicit casts** using operator overloading in classes
