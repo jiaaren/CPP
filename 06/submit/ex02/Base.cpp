@@ -20,20 +20,19 @@ Base *Base::generate(void)
     r = rand() % 3;
     std::cout << "Base instantiated with " << classes[r] << " generated\n";
     if (r == 0)
-        return new A();
+        return new A;
     else if (r == 1)
-        return new B();
+        return new B;
     else
-        return new C();
+        return new C;
 }
 
 // pointers check for return value of NULL
 void Base::identify(Base *p)
 {
-    A *a = static_cast<A *>(p);
-    B *b = static_cast<B *>(p);
-    C *c = static_cast<C *>(p);
-    // why can't make this static
+    A *a = dynamic_cast<A *>(p);
+    B *b = dynamic_cast<B *>(p);
+    C *c = dynamic_cast<C *>(p);
     std::string classes = "ABC";
 
     int i = 0;
@@ -43,7 +42,7 @@ void Base::identify(Base *p)
         i = 1;
     else if (c)
         i = 2;
-    std::cout << "Real type is: " << classes[i] << "\n";
+    std::cout << "Real type (pointer) is: " << classes[i] << "\n";
 }
 
 // references check for exceptions returned to bad_type
@@ -55,7 +54,7 @@ void Base::identify(Base &p)
 
     try
     {
-        A &a = static_cast<A &>(p);
+        A &a = dynamic_cast<A &>(p);
         i = 0;
     }
     catch (std::bad_cast &bc)
@@ -64,7 +63,7 @@ void Base::identify(Base &p)
     }
     try
     {
-        B &b = static_cast<B &>(p);
+        B &b = dynamic_cast<B &>(p);
         i = 1;
     }
     catch (std::bad_cast &bc)
@@ -73,15 +72,17 @@ void Base::identify(Base &p)
     }
     try
     {
-        C &c = static_cast<C &>(p);
+        C &c = dynamic_cast<C &>(p);
         i = 2;
     }
     catch (std::bad_cast &bc)
     {
         (void)bc;
     }
-    std::cout << "Real type is: " << classes[i] << "\n";
+    std::cout << "Real type (reference) is: " << classes[i] << "\n";
 }
 
 // why can't i create this
 // static std::string const classes = "ABC";
+
+// better way to write many try catch?
