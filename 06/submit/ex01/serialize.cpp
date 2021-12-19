@@ -1,4 +1,4 @@
-#include <cstdint>
+
 #include <string>
 #include <iostream>
 #include <stdexcept>
@@ -71,14 +71,16 @@ uintptr_t serialize(Data *ptr)
     tmp = (tmp << BITS) |= std::bitset<BITS * 8>(ptr->getAge());
     // serialize name
     std::string sn = ptr->getSurname();
-    char *surname = const_cast<char *>(ptr->getSurname().data());
+
+    // unused variblae
+    // char *surname = const_cast<char *>(ptr->getSurname().data());
     // std::bitset<BITS * 6> *surname_bits = reinterpret_cast<std::bitset<BITS * 6> *>(surname);
     std::bitset<BITS * 8> surname_bits;
 
     // 6 bits
     for (int i = 5; i >= 0; i--)
     {
-        if (i <= sn.length() - 1)
+        if (i <= (int)sn.length() - 1)
             surname_bits = surname_bits |= std::bitset<BITS * 8>(sn[i]);
         if (i != 0)
             surname_bits = surname_bits << BITS;

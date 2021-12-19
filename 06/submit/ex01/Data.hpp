@@ -4,6 +4,8 @@
 #include <string>
 #include <stdexcept>
 
+typedef unsigned long int uintptr_t;
+
 class Data
 {
 private:
