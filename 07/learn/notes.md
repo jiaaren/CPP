@@ -44,7 +44,22 @@
 ### Default values to type variables in templates
 - use `.tpp` for template files
 
+### Specialisation
+- Template to accept parameter
+- Types:
+  - Generic templates **(above)**
+  - Partial template specialization
+  - Full template specialization
+- Function templates -> only partial
+- Class templates -> partial and full
+
+- Need to write a few variants of our code
+
 ### Random
 - putting **void constructor in private**
     - force users to use constructors with parameters
 - **Each instance** of a class or function needs its own **template** keyword
+
+
+### Question
+- do i need `ClassName<T>` or just `ClassName` in our classes?
