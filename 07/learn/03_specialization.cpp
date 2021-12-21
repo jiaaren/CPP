@@ -7,7 +7,7 @@ template <typename T, typename U>
 class Pair
 {
 public:
-    Pair(T const &lhs, U const &rhs) : _lhs(lhs), _rhs(rhs)
+    Pair<T, U>(T const &lhs, U const &rhs) : _lhs(lhs), _rhs(rhs)
     {
         std::cout << "Generic template\n";
     }

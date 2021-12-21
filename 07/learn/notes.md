@@ -60,6 +60,5 @@
     - force users to use constructors with parameters
 - **Each instance** of a class or function needs its own **template** keyword
 
-
 ### Question
 - do i need `ClassName<T>` or just `ClassName` in our classes?
