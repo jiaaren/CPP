@@ -54,7 +54,7 @@ char Data::getGender(void) const
 
 const char *Data::invalidInput::what() const throw()
 {
-    return "Invalid input, cannot construct Data class\n";
+    return "Invalid input, cannot construct Data class";
 }
 
 /*
