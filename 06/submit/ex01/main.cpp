@@ -20,6 +20,10 @@ int main(void)
     print("\n<---- Deserialzing with uintptr_t ---->");
     Data *n = deserialize(i);
 
+    print("\n<---- Comparison of address ---->");
+    std::cout << "Original: " << reinterpret_cast<void *>(&a) << "\n";
+    std::cout << "Deserialized: " << reinterpret_cast<void *>(n) << "\n";
+
     print("\n<---- Invalid Input (surname) ---->");
     try
     {
