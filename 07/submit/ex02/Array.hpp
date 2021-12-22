@@ -18,7 +18,7 @@ public:
     Array(Array const &a);
     ~Array(void);
     Array &operator=(Array const &rhs);
-    T &operator[](int index);
+    T &operator[](int index) const;
     // getters
     int size(void) const;
     class invalidSize : public std::exception
@@ -93,7 +93,7 @@ Array<T>::~Array(void)
 template <typename T>
 Array<T> &Array<T>::operator=(Array const &rhs)
 {
-    unsigned int rhsSize = rhs.getSize();
+    unsigned int rhsSize = rhs.size();
     if (_size != rhsSize)
     {
         if (_elem)
@@ -106,7 +106,7 @@ Array<T> &Array<T>::operator=(Array const &rhs)
     else
     {
         // revist this and make sure it works
-        for (int i = 0; i < rhsSize; i++)
+        for (int i = 0; static_cast<unsigned int>(i) < rhsSize; i++)
             _elem[i] = rhs[i];
     }
     _size = rhsSize;
@@ -118,7 +118,7 @@ Array<T> &Array<T>::operator=(Array const &rhs)
     https://www.geeksforgeeks.org/overloading-subscript-or-array-index-operator-in-c/
 */
 template <typename T>
-T &Array<T>::operator[](int index)
+T &Array<T>::operator[](int index) const
 {
     if (static_cast<unsigned int>(index) >= _size || index < 0)
         throw invalidSize();

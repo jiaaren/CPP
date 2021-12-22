@@ -1,7 +1,7 @@
 SRCS	=	Array.cpp	main.cpp
 NAME 	= 	a.out
 OBJS	=	$(SRCS:.cpp=.o)
-FLAGS	=	-Wall -Wextra -Werror -std=c++98 -pedantic-errors
+FLAGS	=	-Wall -Wextra -Werror -std=c++98 -pedantic-errors -fsanitize=address
 
 all:	$(NAME)
 
