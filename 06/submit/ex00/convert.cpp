@@ -9,11 +9,7 @@
     First step: to convert into type at highest hierarchy, i.e. double
     Other consdierations:
     - To also consider input of printable characters, which are only represntable by char
-    - Does static cast handle interpreting Max and min values of ints and floats?
-
-    TODO:
-    - check if input is a double/number
-    - precision of floats and doubles?
+    - To consider min and max values
 */
 
 double give_double(std::string input)
@@ -40,8 +36,7 @@ bool check_possible(double d)
     return (true);
 }
 
-// to check if double is more than max int/min int
-// no way to check for cast limits?
+// to check if double is more than max int/min int, does not process char to int conversions
 std::string give_int(double d)
 {
     int tmp;
@@ -58,20 +53,22 @@ std::string give_int(double d)
 
 // -128 to 127 -> 256 max for a char
 // displayable -> 32 ' ' to 126 ~
-std::string give_char(double d)
+std::string give_char(double d, std::string input)
 {
-    char tmp;
-    std::stringstream ss;
-    std::string str;
+    std::string tmp;
 
-    if (!check_possible(d) || d > std::numeric_limits<char>::max() || d < std::numeric_limits<char>::min())
-        return ("impossible");
-    else if (!std::isprint(d))
-        return ("Non displayable");
-    tmp = static_cast<char>(d);
-    ss << tmp;
-    ss >> str;
-    return (str);
+    // check for char input, does not process for non printable and digits
+    if (input.length() == 1 && std::isprint(input[0]) && !std::isdigit(input[0]))
+        tmp = input[0];
+    else
+    {
+        if (!check_possible(d) || d > std::numeric_limits<char>::max() || d < std::numeric_limits<char>::min())
+            return ("impossible");
+        else if (!std::isprint(d))
+            return ("Non displayable");
+        tmp = static_cast<char>(d);
+    }
+    return ("'" + tmp + "'");
 }
 
 int main(int argc, char *argv[])
@@ -84,8 +81,16 @@ int main(int argc, char *argv[])
     double d = give_double(argv[1]);
     float f = static_cast<float>(d);
 
-    std::cout << "char: " << give_char(d) << "\n";
+    std::cout << "char: " << give_char(d, argv[1]) << "\n";
     std::cout << "int: " << give_int(d) << "\n";
-    std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f\n";
-    std::cout << "double: " << std::fixed << std::setprecision(1) << d << "\n";
+    // print minimum precision if integer value inputted
+    if (static_cast<int>(d) == d)
+    {
+        std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f\n";
+        std::cout << "double: " << std::fixed << std::setprecision(1) << d << "\n";
+        return (0);
+    }
+    std::cout << "float: " << f << "f\n";
+    std::cout << "double: " << d << "\n";
+    return (0);
 }

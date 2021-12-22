@@ -3,23 +3,22 @@
 #include <stdio.h>
 #include "Data.hpp"
 
+void print(std::string str)
+{
+    std::cout << str << "\n";
+    return;
+}
+
 int main(void)
 {
-    Data a("James", 120, 'M');
+    print("<---- Initialising values ---->");
+    Data a("Khong", 25, 'M');
 
-    // unsigned char c = 255;
-    // unsigned char tmp = (c << 4);
-    // unsigned char tmp2 = (tmp >> 4);
-
-    // char str[] = "0000";
-    // int *tmp_num = reinterpret_cast<int *>(str);
-
-    // std::cout << static_cast<int>(tmp2) << std::endl;
-    // std::cout << *tmp_num << std::endl;
-
+    print("\n<---- Serializing and outputting number ---->");
     uintptr_t i = serialize(&a);
     std::cout << i << std::endl;
 
+    print("\n<---- Deserialzing with uintptr_t ---->");
     Data *n = deserialize(i);
 
     delete n;

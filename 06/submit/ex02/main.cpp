@@ -2,10 +2,9 @@
 
 int main(void)
 {
-    Base base;
-    Base *b1 = base.generate();
-    base.identify(b1);
-    base.identify(*b1);
+    Base *b1 = generate();
+    identify(b1);
+    identify(*b1);
 
     delete b1;
     return (0);
