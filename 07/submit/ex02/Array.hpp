@@ -3,16 +3,11 @@
 
 #include <stdexcept>
 
-/*
-    Still don't understand fully how full and partial specialization work
-    - especially with <>
-*/
-
 template <typename T>
 class Array
 {
 public:
-    // Array<T> and Array seems to have the same output
+    // Array<T> and Array have the same output
     Array(void);
     Array(unsigned int n);
     Array(Array const &a);
@@ -32,18 +27,19 @@ private:
 };
 
 /*
+    Need to have class definition and functions in hpp file for templates
+    - https://stackoverflow.com/questions/8752837/undefined-reference-to-template-class-constructor
+
     Is there a better way to do this than having
     template <typename T> for all functions?
     - i don't think so?
     https://www.ibm.com/docs/en/zos/2.1.0?topic=templates-member-functions-class
-*/
 
-/*
     Constructor Array is member function of template Array<T>
     https://stackoverflow.com/questions/69667920/name-followed-by-must-be-a-class-or-namespace-name-error-when-making-a-te
     - need to include <T>
 
-    Empty array - NULL pointer and size 0?
+    Empty array - NULL pointer and size 0
 */
 template <typename T>
 Array<T>::Array(void) : _elem(NULL), _size(0)
@@ -85,8 +81,10 @@ Array<T>::~Array(void)
     return;
 }
 
-// why do i need to wrap the first Array<T> with <>?
 /*
+    why do i need to wrap the first Array<T> with <>?
+    - because we're returning Array of typename T
+
     Resizing with new and delete
     https://stackoverflow.com/questions/3482941/how-do-you-realloc-in-c
 */
@@ -104,11 +102,8 @@ Array<T> &Array<T>::operator=(Array const &rhs)
     if (rhsSize == 0)
         _elem = NULL;
     else
-    {
-        // revist this and make sure it works
         for (int i = 0; static_cast<unsigned int>(i) < rhsSize; i++)
             _elem[i] = rhs[i];
-    }
     _size = rhsSize;
     return (*this);
 }
