@@ -14,3 +14,21 @@
 
 ### Algorithms
 - collection of functions/algorithms
+
+### Templates (cont'd)
+- Typename and Class is sort of interchangable in the context of templates
+  - https://stackoverflow.com/questions/2023977/difference-of-keywords-typename-and-class-in-templates
+- Template functions or classes do not exist
+  - Only exist when the function or class is called/initialised
+  - So wrong syntax in the template may still result in code being compiled, during compile time.
+    - Some compilers may highlight errors some may not
+- Don't need to specify type, e.g. `<int>`, `<std::string>`, if compiler can detect what's inside the brackets `()`
+- Templates basically copy and paste a new instance of a function/class and replace the type specified by `typename`
+
+#### Not only limited by typename
+- Use types in templates - refer **cherno_templates.cpp**
+  - E.g. C++ doesn't allow variable length arrays (VLAs), so instead, we can use tempaltes with `<int N>` to intiialise our arrays
+    - This works because templates are evaluated at compile time, this bypassing VLAs
+
+#### Where to / not to use templates
+- templates are fragile, can be messy and difficult to debug

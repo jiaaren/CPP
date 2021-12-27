@@ -10,6 +10,6 @@ int main(void)
         std::list<int> l;
         l.push_back(42);
         l.push_back(100);
-        std::cout << easyfind<std::list>(l, 42) << "\n";
+        std::cout << easyfind<std::list>(l, 100) << "\n";
     }
 }
