@@ -16,16 +16,16 @@ double give_double(std::string input)
 {
     std::stringstream ss;
     double tmp;
-	
-	// remove f from end of string
-	if (input[input.length() - 1] == 'f')
-		input[input.length() - 1] = '\0';
+
     if (input == "inf" || input == "+inf")
         return (+std::numeric_limits<float>::infinity());
     else if (input == "-inf")
         return (-std::numeric_limits<float>::infinity());
     else if (input == "nan")
         return (std::numeric_limits<float>::quiet_NaN());
+    // remove f from end of string
+    if (input[input.length() - 1] == 'f')
+        input[input.length() - 1] = '\0';
     ss << input;
     ss >> tmp;
     return (tmp);
