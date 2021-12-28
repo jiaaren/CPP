@@ -32,3 +32,29 @@
 
 #### Where to / not to use templates
 - templates are fragile, can be messy and difficult to debug
+
+
+### TODO
+- to understand how iterators work
+
+```
+int Span::longestSpan(void) const
+{
+    if (_filled <= 1)
+        throw(SearchFailed());
+    int smallest = std::numeric_limits<int>::max();
+    int largest = std::numeric_limits<int>::min();
+    std::vector<int>::const_iterator it;
+    std::cout << largest << " " << smallest << "\n";
+    for (it = _v.begin(); it != _v.end(); ++it)
+    {
+        if (*it > largest)
+            largest = *it;
+        if (*it < smallest)
+            smallest = *it;
+        // std::cout << largest << " " << smallest << "\n";
+        std::cout << *it << "\n";
+    }
+    return (largest - smallest);
+}
+```
