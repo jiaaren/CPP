@@ -17,8 +17,11 @@ public:
     // getter
     int getFilled(void) const;
     int getSize(void) const;
+    std::vector<int>::const_iterator getBegin(void) const;
+    std::vector<int>::const_iterator getEnd(void) const;
     // add
     void addNumber(int i);
+    void addRange(std::vector<int>::const_iterator begin, std::vector<int>::const_iterator end);
     // search functions
     int shortestSpan(void) const;
     int longestSpan(void) const;

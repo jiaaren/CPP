@@ -1,7 +1,9 @@
 #ifndef EASYFIND_HPP
 #define EASYFIND_HPP
 
+#include <stdexcept>
 #include <iterator>
+#include <algorithm>
 
 /*
     T is represented by a container
@@ -26,13 +28,22 @@
     4. Why need template and typename keywords? - https://stackoverflow.com/questions/610245/where-and-why-do-i-have-to-put-the-template-and-typename-keywords
 */
 
-// typename, typaname because tempalte accepts both a type and a hidden allocator
+class NumNotFound : public std::exception
+{
+public:
+    virtual const char *what(void) const throw()
+    {
+        return ("Number not found");
+    }
+};
+
+// typename, typename because template accepts both a type and a hidden allocator
 template <template <typename, typename> class Cont>
-int easyfind(Cont<int, std::allocator<int>> const &t, int i)
+int easyfindBad(Cont<int, std::allocator<int> > const &t, int i)
 {
     // creating instance of iterator
     // need const iterator because item passed in is const t
-    typename Cont<int, std::allocator<int>>::const_iterator it;
+    typename Cont<int, std::allocator<int> >::const_iterator it;
     int index = 0;
     for (it = t.begin(); it != t.end(); ++it)
     {
@@ -40,7 +51,19 @@ int easyfind(Cont<int, std::allocator<int>> const &t, int i)
             return (index);
         index++;
     }
-    return (-1);
+    throw (NumNotFound());
+}
+
+template <template <typename, typename> class Cont>
+int easyfind(Cont<int, std::allocator<int> > const &t, int i)
+{
+    // creating instance of iterator
+    // need const iterator because item passed in is const t
+    typename Cont<int, std::allocator<int> >::const_iterator it;
+    it = std::find(t.begin(), t.end(), i);
+    if (it == t.end())
+        throw (NumNotFound());
+    return (*it);
 }
 
 #endif
