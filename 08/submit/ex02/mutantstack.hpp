@@ -10,16 +10,16 @@ template <typename T>
 class MutantStack : public std::stack<T>
 {
 public:
-    // MutantStack(void);
-    // MutantStack(MutantStack const &ms);
-    // virtual ~MutantStack(void){};
-    // create iterator class
+    MutantStack(void){};
+    virtual ~MutantStack(void){};
+    // typedef iterator class from deqeue Container, which can be found in std::stack<T>
     typedef typename std::stack<T>::container_type::iterator iterator;
     typedef typename std::stack<T>::container_type::const_iterator const_iterator;
     typedef typename std::stack<T>::container_type::reverse_iterator reverse_iterator;
     typedef typename std::stack<T>::container_type::const_reverse_iterator const_reverse_iterator;
-    MutantStack &operator=(MutantStack &ms);
-    // iterator method for begin and end, cannot have const function to return nothing...
+    // iterators present per - https://www.cplusplus.com/reference/stack/stack/
+    // Linux ubuntu doesn't offer const iterators - i.e. cbegin, cend, crbegin, crend,
+    // since it will be promoted to const if we return it to a const_iterator or const_reverse_iterator
     iterator begin(void);
     iterator end(void);
     const_iterator cbegin(void);
@@ -77,12 +77,6 @@ template <typename T>
 typename MutantStack<T>::const_reverse_iterator MutantStack<T>::crend(void)
 {
     return (std::stack<T>::c.crend());
-}
-
-template <typename T>
-MutantStack<T> &MutantStack<T>::operator=(MutantStack<T> &ms)
-{
-    std::stack<T>::operator=(ms);
 }
 
 #endif

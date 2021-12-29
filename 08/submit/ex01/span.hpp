@@ -12,9 +12,13 @@ private:
     unsigned int _size;
 
 public:
+    Span(void);
     Span(unsigned int n);
+    Span(Span const &s);
     ~Span(void);
+    Span &operator=(Span const &rhs);
     // getter
+    std::vector<int> getVector(void) const;
     int getFilled(void) const;
     int getSize(void) const;
     std::vector<int>::const_iterator getBegin(void) const;
