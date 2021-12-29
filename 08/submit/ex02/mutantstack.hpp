@@ -4,8 +4,7 @@
 #include <stack>
 #include <list>
 #include <iostream>
-
-std::list<int>::iterator it;
+#include <iterator>
 
 template <typename T>
 class MutantStack : public std::stack<T>
@@ -21,8 +20,8 @@ public:
 		// != operator - copy from std::list iterator
 	};
 	// iterator method for begin and end
-	iterator begin(void) const;
-	iterator end(void) const;
+	iterator const &begin(void) const;
+	iterator const &end(void) const;
 	void push(T n);
 	void pop(void);
 
@@ -30,6 +29,28 @@ private:
 	std::list<T> _l;
 	void _copyToList(void);
 };
+
+// template <typename T>
+// class MutantStack : public std::stack<T>
+// {
+// private:
+// 	std::list<T> _l;
+// 	void _copyToList(void);
+
+// public:
+// 	MutantStack(void);
+// 	MutantStack(MutantStack const &ms);
+// 	virtual ~MutantStack(void){};
+// 	// create iterator class
+// 	typedef std::list<T> base_list;
+// 	typedef typename base_list::iterator iterator;
+// 	typedef typename base_list::const_iterator const_iterator;
+// 	// iterator method for begin and end
+// 	using _l::begin;
+// 	using _l::end;
+// 	void push(T n);
+// 	void pop(void);
+// };
 
 /*
 - this seems unnecessary now
@@ -91,15 +112,25 @@ mutantstack.hpp:90:1: error: need ‘typename’ before ‘MutantStack<T>::itera
    90 | MutantStack<T>::iterator &MutantStack<T>::begin(void) const
 	  | ^~~~~~~~~~~~~~
 	  | typename 
+
+./mutantstack.hpp:119:9: error: no viable conversion from returned value of type 'std::__1::list<int, std::__1::allocator<int> >::const_iterator' (aka '__list_const_iterator<int, void *>') to function return type
+      'MutantStack<int>::iterator'
+        return (_l.begin());
+
+./mutantstack.hpp:17:8: note: candidate constructor (the implicit copy constructor) not viable: cannot bind base class object of type 'std::__1::list<int, std::__1::allocator<int> >::const_iterator'
+      (aka '__list_const_iterator<int, void *>') to derived class reference 'const MutantStack<int>::iterator &' for 1st argument
+        class iterator : public std::list<T, std::allocator<T> >::const_iterator
+              ^
+- added reference (&) to silence error
 */
 template<typename T>
-typename MutantStack<T>::iterator MutantStack<T>::begin(void) const
+typename MutantStack<T>::iterator const &MutantStack<T>::begin(void) const
 {
 	return (_l.begin());
 }
 
 template<typename T>
-typename MutantStack<T>::iterator MutantStack<T>::end(void) const
+typename MutantStack<T>::iterator const &MutantStack<T>::end(void) const
 {
 	return (_l.end());
 }
